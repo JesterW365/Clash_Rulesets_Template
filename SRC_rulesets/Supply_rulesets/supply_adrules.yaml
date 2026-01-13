@@ -1,0 +1,10 @@
+# The author collected advertising rules
+groupname: adrules
+type: classical
+payload:
+  - DOMAIN-SUFFIX,tpns.tencent.com
+  - DOMAIN,lf-cdn-tos.bytescm.com
+  - DOMAIN,webcast-open.douyin.com
+  - DOMAIN,dsp-api-cn.metriclx.com
+  - DOMAIN-SUFFIX,dsp-api-cn.metricslinks.com
+  - DOMAIN-SUFFIX,open-if.douyin.com

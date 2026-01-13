@@ -1,0 +1,20 @@
+# Major domestic AI service providers
+payload: 
+  - DOMAIN-SUFFIX,bigmodel.cn
+  - DOMAIN-SUFFIX,z.ai
+  - DOMAIN-SUFFIX,aliyuncs.com
+  - DOMAIN-SUFFIX,qwen.ai
+  - DOMAIN-SUFFIX,deepseek.com
+  - DOMAIN-SUFFIX,lingyiwanwu.com
+  - DOMAIN-SUFFIX,moonshot.cn
+  - DOMAIN-SUFFIX,minimax.chat
+  - DOMAIN-SUFFIX,baichuan-ai.com
+  - DOMAIN-SUFFIX,stepfun.com
+  - DOMAIN-SUFFIX,volces.com
+  - DOMAIN-SUFFIX,volcengine.com
+  - DOMAIN-SUFFIX,cloud.tencent.com
+  - DOMAIN-SUFFIX,baidubce.com
+  - DOMAIN-SUFFIX,xiaomimimo.com
+  - DOMAIN-SUFFIX,klingai.com
+  - DOMAIN-SUFFIX,xfyun.cn
+  - DOMAIN-SUFFIX,xf-yun.com

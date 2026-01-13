@@ -1,0 +1,153 @@
+PreDirect: 
+  groupname: predirect
+  src: 
+    - name: localareanetwork
+      type: classical
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml'
+    - name: steamCN
+      type: classical
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/SteamCN/SteamCN.yaml'
+    - name: gamedownlaodCN
+      type: classical
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/GameDownloadCN/GameDownloadCN.yaml'
+
+ADrules: 
+  groupname: adrules
+  src: 
+    - name: anti-ad
+      type: domain
+      url: 'https://anti-ad.net/clash.yaml'
+    - name: adrules_top
+      type: domain
+      url: 'https://adrules.top/adrules_domainset.txt'
+
+Microsoft&Bing: 
+  groupname: msbing
+  src: 
+    - name: microsoft
+      type: classical
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.yaml'
+    - name: bing
+      type: classical
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Bing/Bing.yaml'
+    - name: microsoftedge
+      type: classical
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/MicrosoftEdge/MicrosoftEdge.yaml'
+
+OneDrive: 
+  groupname: onedrive
+  src: 
+    - name: onedrive
+      type: classical
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OneDrive/OneDrive.yaml'
+
+Google&Youtube: 
+  groupname: googleyt
+  src: 
+    - name: google
+      type: classical
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.yaml'
+    - name: youtube
+      type: classical
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.yaml'
+
+AIservice: 
+  groupname: aiservice
+  src: 
+    - name: gemini
+      type: classical
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.yaml'
+    - name: chatgpt
+      type: classical
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChatGPT/ChatGPT.yaml'
+    - name: anthropic
+      type: classical
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Anthropic/Anthropic.yaml'
+    - name: jwaicoder
+      type: classical
+      # JesterW365的AIcoder服务规则
+      url: 'https://raw.githubusercontent.com/JesterW365/Clash_Rules_Get-Merge/refs/heads/main/Rules/AI_router/AiRouter.yaml'
+
+AIserviceCN: 
+  groupname: aiservicecn
+  src: 
+    - name: jwaicn
+      type: classical
+      # JesterW365的国内AI服务规则
+      url: 'https://raw.githubusercontent.com/JesterW365/Clash_Rules_Get-Merge/refs/heads/main/Rules/AI_router_CN/AiRouterCN.yaml'
+    - name: jwaircn
+      type: classical
+      # JesterW365的国内AI平台规则
+      url: 'https://raw.githubusercontent.com/JesterW365/Clash_Rules_Get-Merge/refs/heads/main/Rules/AI_router_CN/AiRouterCN.yaml'
+
+Apple&iCloud: 
+  groupname: appleicloud
+  src: 
+    - name: apple
+      type: domain
+      url: 'https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/apple.txt'
+    - name: icloud
+      type: domain
+      url: 'https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/icloud.txt'
+
+FixedMedias: 
+  groupname: fixedmedias
+  src: 
+    - name: telegram
+      type: classical
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.yaml'
+    - name: twitter
+      type: classical
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitter/Twitter.yaml'
+    - name: facebook
+      type: classical
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Facebook/Facebook.yaml'
+    - name: instagram
+      type: classical
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Instagram/Instagram.yaml'
+    - name: threads
+      type: classical
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Threads/Threads.yaml'
+    - name: tiktok
+      type: classical
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Tiktok/Tiktok.yaml'
+    - name: reddit
+      type: classical
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Reddit/Reddit.yaml'
+
+GameDownload: 
+  groupname: gamedownload
+  src: 
+    - name: gamedownload
+      type: classical
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/GameDownload/GameDownload.yaml'
+
+GamePlay: 
+# PROCESS-NAME
+  groupname: gameplay
+  src: 
+    - name: game!cn
+      type: classical
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/Game.yaml'
+
+GamePlatform: 
+  groupname: gameplatform
+  src: 
+    - name: steam
+      type: classical
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/GamePlatform/Steam/Steam.yaml'
+    - name: battle
+      type: classical
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/GamePlatform/Battle/Battle.yaml'
+    - name: nintendo
+      type: classical
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/GamePlatform/Nintendo/Nintendo.yaml'
+    - name: ea
+      type: classical
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/GamePlatform/EA/EA.yaml'
+    - name: rockstar
+      type: classical
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/GamePlatform/Rockstar/Rockstar.yaml'
+    - name: ubisoft
+      type: classical
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/GamePlatform/Ubisoft/Ubisoft.yaml'
