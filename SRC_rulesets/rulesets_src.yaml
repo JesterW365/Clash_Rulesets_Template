@@ -57,16 +57,16 @@ AIservice:
     - name: gemini
       type: classical
       url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.yaml'
-    - name: chatgpt
+    - name: openai
       type: classical
-      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChatGPT/ChatGPT.yaml'
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.yaml'
     - name: anthropic
       type: classical
       url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Anthropic/Anthropic.yaml'
     - name: jwaicoder
       type: classical
       # JesterW365的AIcoder服务规则
-      url: 'https://raw.githubusercontent.com/JesterW365/Clash_Rules_Get-Merge/refs/heads/main/Rules/AI_router/AiRouter.yaml'
+      url: 'https://raw.githubusercontent.com/JesterW365/Clash_Rulesets_Template/master/Custom_rulesets/AicoderCNOS.yaml'
 
 AIserviceCN: 
   groupname: aiservicecn
@@ -74,11 +74,11 @@ AIserviceCN:
     - name: jwaicn
       type: classical
       # JesterW365的国内AI服务规则
-      url: 'https://raw.githubusercontent.com/JesterW365/Clash_Rules_Get-Merge/refs/heads/main/Rules/AI_router_CN/AiRouterCN.yaml'
+      url: 'https://raw.githubusercontent.com/JesterW365/Clash_Rulesets_Template/master/Custom_rulesets/AiserviceCN.yaml'
     - name: jwaircn
       type: classical
       # JesterW365的国内AI平台规则
-      url: 'https://raw.githubusercontent.com/JesterW365/Clash_Rules_Get-Merge/refs/heads/main/Rules/AI_router_CN/AiRouterCN.yaml'
+      url: 'https://raw.githubusercontent.com/JesterW365/Clash_Rulesets_Template/master/Custom_rulesets/AirouterCN.yaml'
 
 Apple&iCloud: 
   groupname: appleicloud
@@ -110,7 +110,7 @@ FixedMedias:
       url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Threads/Threads.yaml'
     - name: tiktok
       type: classical
-      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Tiktok/Tiktok.yaml'
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.yaml'
     - name: reddit
       type: classical
       url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Reddit/Reddit.yaml'
@@ -135,19 +135,22 @@ GamePlatform:
   src: 
     - name: steam
       type: classical
-      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/GamePlatform/Steam/Steam.yaml'
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Steam/Steam.yaml'
     - name: battle
       type: classical
-      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/GamePlatform/Battle/Battle.yaml'
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Battle/Battle.yaml'
     - name: nintendo
       type: classical
-      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/GamePlatform/Nintendo/Nintendo.yaml'
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Nintendo/Nintendo.yaml'
     - name: ea
       type: classical
-      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/GamePlatform/EA/EA.yaml'
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/EA/EA.yaml'
     - name: rockstar
       type: classical
-      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/GamePlatform/Rockstar/Rockstar.yaml'
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Rockstar/Rockstar.yaml'
     - name: ubisoft
       type: classical
-      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Game/GamePlatform/Ubisoft/Ubisoft.yaml'
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Ubisoft/Ubisoft.yaml'
+    - name: ubi
+      type: classical
+      url: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/UBI/UBI.yaml'

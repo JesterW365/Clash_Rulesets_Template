@@ -1,0 +1,50 @@
+{
+  "predirect": {
+    "group_type": "classical",
+    "rule_count": 169
+  },
+  "adrules": {
+    "group_type": "domain",
+    "rule_count": 157606
+  },
+  "msbing": {
+    "group_type": "domain",
+    "rule_count": 668
+  },
+  "onedrive": {
+    "group_type": "domain",
+    "rule_count": 13
+  },
+  "googleyt": {
+    "group_type": "classical",
+    "rule_count": 888
+  },
+  "aiservice": {
+    "group_type": "classical",
+    "rule_count": 79
+  },
+  "aiservicecn": {
+    "group_type": "domain",
+    "rule_count": 53
+  },
+  "appleicloud": {
+    "group_type": "domain",
+    "rule_count": 218
+  },
+  "fixedmedias": {
+    "group_type": "classical",
+    "rule_count": 691
+  },
+  "gamedownload": {
+    "group_type": "domain",
+    "rule_count": 39
+  },
+  "gameplay": {
+    "group_type": "classical",
+    "rule_count": 597
+  },
+  "gameplatform": {
+    "group_type": "classical",
+    "rule_count": 365
+  }
+}
