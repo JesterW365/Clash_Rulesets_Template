@@ -1,0 +1,24 @@
+fakeipfilter: 
+  name: fakeipfilter
+  type: domain
+  url: 'https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/fakeip-filter.list'
+
+private: 
+  name: private
+  type: domain
+  url: 'https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/private.list'
+
+cn: 
+  name: cn
+  type: domain
+  url: 'https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/cn.list'
+
+cnip: 
+  name: cnip
+  type: ipcidr
+  url: 'https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/cnip.list'
+
+proxy: 
+  name: proxy
+  type: domain
+  url: 'https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/proxy.list'
