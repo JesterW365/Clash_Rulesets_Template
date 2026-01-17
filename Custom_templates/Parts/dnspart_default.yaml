@@ -1,0 +1,42 @@
+dns:
+  enable: true
+  cache-algorithm: arc
+  ipv6: false
+  prefer-h3: true
+  respect-rules: true
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    # 各个dns服务器
+    - "dns.alidns.com"
+    - "doh.pub"
+    - "dns.google"
+    - "cloudflare-dns.com"
+    # ruleset
+    - "rule-set:fakeipfilter"
+    - "rule-set:private"
+  default-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  nameserver-policy:
+    # ruleset
+    "geosite:cn":
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+    - 223.5.5.5
+    "rule-set:directdm":
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+    - 223.5.5.5
+  proxy-server-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  direct-nameserver-follow-policy: true
+  direct-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  nameserver:
+    - https://cloudflare-dns.com/dns-query#h3=true
+    - https://8.8.8.8/dns-query
+    - 8.8.8.8
+    - 223.5.5.5

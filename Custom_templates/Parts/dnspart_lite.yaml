@@ -1,0 +1,81 @@
+dns:
+  enable: true
+  cache-algorithm: arc
+  ipv6: false
+  prefer-h3: true
+  respect-rules: true
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - "dns.alidns.com"
+    - "doh.pub"
+    - "dns.google"
+    - "cloudflare-dns.com"
+    - '+.direct'
+    - '+.example'
+    - '+.lan'
+    - '+.local'
+    - '+.localdomain'
+    - '+.localhost'
+    - '+.msftconnecttest.com'
+    - '+.msftncsi.com'
+    - '+.ntp.org.cn'
+    - '+.pool.ntp.org'
+    - '+.stun.*.*'
+    - '+.stun.*.*.*'
+    - '+.stun.*.*.*.*'
+    - '+.stun.*.*.*.*.*'
+    - '+.test'
+    - '+.time.edu.cn'
+    - 'na.b.g-tun.com'
+    - 'ntp.*.com'
+    - 'ntp1.*.com'
+    - 'ntp2.*.com'
+    - 'ntp3.*.com'
+    - 'ntp4.*.com'
+    - 'ntp5.*.com'
+    - 'ntp6.*.com'
+    - 'ntp7.*.com'
+    - 'swcdn.apple.com'
+    - 'swdist.apple.com'
+    - 'swdownload.apple.com'
+    - 'swquery.apple.com'
+    - 'swscan.apple.com'
+    - 'time-ios.apple.com'
+    - 'time.*.apple.com'
+    - 'time.*.com'
+    - 'time.*.edu.cn'
+    - 'time.*.gov'
+    - 'time1.*.com'
+    - 'time1.cloud.tencent.com'
+    - 'time2.*.com'
+    - 'time3.*.com'
+    - 'time4.*.com'
+    - 'time5.*.com'
+    - 'time6.*.com'
+    - 'time7.*.com'
+    - '+.internal'
+    - '+.invalid'
+    - 'yacd.haishan.me'
+    - 'yacd.metacubex.one'
+  default-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  nameserver-policy:
+    "geosite:cn":
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+    - 223.5.5.5
+  proxy-server-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  direct-nameserver-follow-policy: true
+  direct-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  nameserver:
+    - https://cloudflare-dns.com/dns-query#h3=true
+    - https://8.8.8.8/dns-query
+    - 8.8.8.8
+    - 223.5.5.5
+  

@@ -1,0 +1,163 @@
+proxy-groups:
+  # 默认流量
+  - name: 🌏默认代理
+    type: select
+    proxies:
+      - 🇭🇰香港
+      - 🇯🇵日本
+      - 🇹🇼台湾
+      - 🇸🇬新加坡
+      - 🇰🇷韩国
+      - 🇺🇸美国
+      - 🌐其他
+      - DIRECT
+
+  # 2. 地区自动分组
+  - name: 🇭🇰香港
+    type: select
+    include-all-proxies: true
+    filter: "(?i)港|hk|hongkong|hong kong|🇭🇰"
+    interval: 300
+    url: "https://www.gstatic.com/generate_204"
+    lazy: true
+    timeout: 5000
+    max-failed-times: 5
+  
+  - name: 🇯🇵日本
+    type: select
+    include-all-proxies: true
+    filter: "(?i)日本|jp|japan|东京|ty|🇯🇵"
+    interval: 300
+    url: "https://www.gstatic.com/generate_204"
+    lazy: true
+    timeout: 5000
+    max-failed-times: 5
+  
+  - name: 🇹🇼台湾
+    type: select
+    include-all-proxies: true
+    filter: "(?i)台|tw|taiwan|tp|🇹🇼"
+    interval: 300
+    url: "https://www.gstatic.com/generate_204"
+    lazy: true
+    timeout: 5000
+    max-failed-times: 5
+  
+  - name: 🇸🇬新加坡
+    type: select
+    include-all-proxies: true
+    filter: "(?i)加坡|sg|singapore|sin|🇸🇬"
+    interval: 300
+    url: "https://www.gstatic.com/generate_204"
+    lazy: true
+    timeout: 5000
+    max-failed-times: 5
+  
+  - name: 🇰🇷韩国
+    type: select
+    include-all-proxies: true
+    filter: "(?i)韩|kr|korea|首尔|seoul|🇰🇷"
+    interval: 300
+    url: "https://www.gstatic.com/generate_204"
+    lazy: true
+    timeout: 5000
+    max-failed-times: 5
+  
+  - name: 🇺🇸美国
+    type: select
+    include-all-proxies: true
+    filter: "(?i)美|us|unitedstates|united states|americ|洛杉|la|纽约|ny|🇺🇸"
+    interval: 300
+    url: "https://www.gstatic.com/generate_204"
+    lazy: true
+    timeout: 5000
+    max-failed-times: 5
+
+  - name: 🌐其他
+    type: select
+    include-all-proxies: true
+    exclude-filter: "(?i)港|hk|hongkong|hong kong|🇭🇰|日本|jp|japan|东京|ty|🇯🇵|台|tw|taiwan|tp|🇹🇼|加坡|sg|singapore|sin|🇸🇬|韩|kr|korea|首尔|seoul|🇰🇷|美|us|unitedstates|united states|americ|洛杉|la|纽约|ny|🇺🇸|订阅|剩余|重置|到期|加入|机场|官网|地址|过期|xpire|raffic|websi|use|tota"
+    interval: 300
+    url: "https://www.gstatic.com/generate_204"
+    lazy: true
+    timeout: 5000
+    max-failed-times: 5
+  
+  - name: 🚩信息
+    type: select
+    include-all-proxies: true
+    filter: "(?i)订阅|剩余|重置|到期|加入|机场|官网|地址|过期|xpire|raffic|websi|use|tota"
+    lazy: true
+
+  # 3. 特殊用途筛选
+
+  # 主流服务稳定IP(主香港)
+  - name: ⚓稳定IP
+    type: select
+    proxies: ['🇭🇰香港', '🇯🇵日本', '🇹🇼台湾', '🇸🇬新加坡', '🌐其他']
+    include-all-proxies: true
+    filter: "(?i)港|hk|hongkong|hong kong|🇭🇰|日本|jp|japan|东京|ty|🇯🇵|台|tw|taiwan|tp|🇹🇼|加坡|sg|singapore|sin|🇸🇬"
+
+  # 网络游戏专用(亚洲)
+  - name: 🎮游戏线路
+    type: select
+    proxies: ['🇹🇼台湾', '🇭🇰香港', '🇯🇵日本', '🇰🇷韩国', '🌐其他', DIRECT]
+    include-all-proxies: true
+    filter: "(?i)港|hk|hongkong|hong kong|🇭🇰|日本|jp|japan|东京|ty|🇯🇵|台|tw|taiwan|tp|🇹🇼|韩|kr|korea|首尔|seoul|🇰🇷|游戏|game"
+  
+  # EMBY专用(亚洲)
+  - name: 🎬影视线路
+    type: select
+    include-all-proxies: true
+    filter: "港|hk|hongkong|hong kong|🇭🇰|日本|jp|japan|东京|ty|🇯🇵|台|tw|taiwan|tp|🇹🇼|加坡|sg|singapore|sin|🇸🇬|韩|kr|korea|首尔|seoul|🇰🇷"
+  
+  # Ai服务专用(日本、台湾、新加坡、美国)
+  - name: ✨Ai线路
+    type: select
+    proxies: ['🇯🇵日本', '🇹🇼台湾', '🇸🇬新加坡', '🇺🇸美国', '🌐其他']
+    include-all-proxies: true
+    filter: "(?i)日本|jp|japan|东京|ty|🇯🇵|加坡|sg|singapore|sin|🇸🇬|美|us|unitedstates|united states|americ|洛杉|la|纽约|ny|🇺🇸"
+  
+  # 4. 各个服务专项
+
+  # 微软服务(主稳定)
+  - name: MS+Bing
+    type: select
+    proxies: ['⚓稳定IP', '🇭🇰香港', '🇯🇵日本', '🇹🇼台湾', '🇸🇬新加坡', '🇺🇸美国', '🌏默认代理', '🌐其他']  
+  # Onedrive服务，跟随或直连
+  - name: OneDrive
+    type: select
+    proxies: [DIRECT, 'MS+Bing', '🌏默认代理']
+  
+  # Google服务(主日本)
+  - name: Google
+    type: select
+    proxies: ['🇯🇵日本', '🇭🇰香港', '🇸🇬新加坡', '🇺🇸美国', '🇹🇼台湾', '🇰🇷韩国', '🌐其他']
+  
+  # Apple服务(主直连)
+  - name: Apple
+    type: select
+    proxies: [DIRECT, '🇯🇵日本', '🇭🇰香港', '🇸🇬新加坡', '🇺🇸美国', '🇹🇼台湾', '🇰🇷韩国', '🌐其他', '🌏默认代理']
+
+  # Telegram|Twitter|Facebook|TikTok etc.(主稳定)
+  - name: 外国媒体
+    type: select
+    proxies: ['⚓稳定IP', '🌏默认代理']
+
+  # 外国游戏下载服务(主大流量)
+  - name: 游戏下载
+    type: select
+    proxies: [DIRECT, '🌏默认代理', '🎮游戏线路', '🌐其他']
+
+  # 外国游戏(主网游专用)
+  - name: 游戏平台
+    type: select
+    proxies: ['🎮游戏线路', DIRECT, '🌐其他']
+  
+  - name: 🔎未命中
+    type: select
+    proxies: ['🌏默认代理', DIRECT]
+  
+  - name: 🛑广告拦截
+    type: select
+    proxies: [REJECT, DIRECT]

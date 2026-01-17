@@ -1,0 +1,156 @@
+rule-providers:
+  fakeipfilter:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/JesterW365/Clash_Rulesets_Template@master/SRC_rulesets/Forked_rulesets/Converted_rulesets/fakeipfilter.yaml"
+    path: ./ruleset/fakeipfilter.yaml
+    interval: 86400
+    
+  private:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/JesterW365/Clash_Rulesets_Template@master/SRC_rulesets/Forked_rulesets/Converted_rulesets/private.yaml"
+    path: ./ruleset/private.yaml
+    interval: 86400
+
+  predirect:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/JesterW365/Clash_Rulesets_Template@master/Generated_rulesets/predirect.yaml"
+    path: ./ruleset/predirect.yaml
+    interval: 86400    
+
+  adrules:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/JesterW365/Clash_Rulesets_Template@master/Generated_rulesets/adrules.yaml"
+    path: ./ruleset/adrules.yaml
+    interval: 86400
+
+  msbing:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/JesterW365/Clash_Rulesets_Template@master/Generated_rulesets/msbing.yaml"
+    path: ./ruleset/msbing.yaml
+    interval: 86400
+
+  googleyoutube:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/JesterW365/Clash_Rulesets_Template@master/Generated_rulesets/googleyt.yaml"
+    path: ./ruleset/googleyt.yaml
+    interval: 86400
+  
+  apple:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/JesterW365/Clash_Rulesets_Template@master/Generated_rulesets/appleicloud.yaml"
+    path: ./ruleset/appleicloud.yaml
+    interval: 86400
+
+  aiservice:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/JesterW365/Clash_Rulesets_Template@master/Generated_rulesets/aiservice.yaml"
+    path: ./ruleset/aiservice.yaml
+    interval: 86400
+
+  aiservicecn:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/JesterW365/Clash_Rulesets_Template@master/Generated_rulesets/aiservicecn.yaml"
+    path: ./ruleset/aiservicecn.yaml
+    interval: 86400
+
+  gamedownload:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/JesterW365/Clash_Rulesets_Template@master/Generated_rulesets/gamedownload.yaml"
+    path: ./ruleset/gamedownload.yaml
+    interval: 86400
+
+  gameplay:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/JesterW365/Clash_Rulesets_Template@master/Generated_rulesets/gameplay.yaml"
+    path: ./ruleset/gameplay.yaml
+    interval: 86400
+
+  gameplatform:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/JesterW365/Clash_Rulesets_Template@master/Generated_rulesets/gameplatform.yaml"
+    path: ./ruleset/gameplatform.yaml
+    interval: 86400
+
+  fixedmedias:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/JesterW365/Clash_Rulesets_Template@master/Generated_rulesets/fixedmedias.yaml"
+    path: ./ruleset/fixedmedias.yaml
+    interval: 86400
+
+  onedrive:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/JesterW365/Clash_Rulesets_Template@master/Generated_rulesets/onedrive.yaml"
+    path: ./ruleset/onedrive.yaml
+    interval: 86400
+
+  directdm:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/JesterW365/Clash_Rulesets_Template@master/SRC_rulesets/Forked_rulesets/Converted_rulesets/cn.yaml"
+    path: ./ruleset/cndm.yaml
+    interval: 86400
+  
+  directip:
+    type: http
+    behavior: ipcidr
+    url: "https://cdn.jsdelivr.net/gh/JesterW365/Clash_Rulesets_Template@master/SRC_rulesets/Forked_rulesets/Converted_rulesets/cnip.yaml"
+    path: ./ruleset/cnip.yaml
+    interval: 86400
+  
+  proxy:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/JesterW365/Clash_Rulesets_Template@master/SRC_rulesets/Forked_rulesets/Converted_rulesets/proxy.yaml"
+    path: ./ruleset/proxy.yaml
+    interval: 86400
+
+# 分流规则
+rules:
+  # 系统与强制
+  - DOMAIN-SUFFIX,netloading.net,DIRECT
+  - DOMAIN-SUFFIX,yunti.online,🎬影视线路
+  - DOMAIN-SUFFIX,mjji.de,🎬影视线路
+  - RULE-SET,fakeipfilter,DIRECT
+  - RULE-SET,private,DIRECT
+  - GEOIP,LAN,DIRECT,no-resolve
+
+  # 规则集 (Rule-Set)
+  - RULE-SET,predirect,DIRECT
+  - RULE-SET,adrules,🛑广告拦截
+  - RULE-SET,gameplay,🎮游戏线路
+  - RULE-SET,msbing,MS+Bing
+  - RULE-SET,onedrive,OneDrive
+  - RULE-SET,googleyoutube,Google
+  - RULE-SET,apple,Apple
+  - RULE-SET,aiservice,✨Ai线路
+  - RULE-SET,aiservicecn,DIRECT
+  - RULE-SET,fixedmedias,外国媒体
+  - RULE-SET,gamedownload,游戏下载
+  - RULE-SET,gameplatform,游戏平台
+
+  # 兜底分流
+  - RULE-SET,proxy,🌏默认代理
+  - RULE-SET,directdm,DIRECT
+  - RULE-SET,directip,DIRECT
+  
+  # 国内优化
+  - DOMAIN-SUFFIX,cn,DIRECT
+  - GEOSITE,cn,DIRECT
+  - GEOIP,CN,DIRECT,no-resolve
+  
+  # 最终匹配
+  - MATCH,🔎未命中

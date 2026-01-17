@@ -104,13 +104,8 @@ def process_rulesets_yaml(input_yaml_path):
 
 if __name__ == "__main__":
     # 获取项目路径
-    current_script_path = os.path.abspath(__file__)
-    script_dir = os.path.dirname(current_script_path)
-    
-    # 默认寻找 SRC_rulesets/Forked_rulesets/forked_rulesets.yaml
-    # 假设目录结构: Scripts/forked_rulesets_get/list2yaml.py
-    # 配置文件在: SRC_rulesets/Forked_rulesets/forked_rulesets.yaml
-    project_root = os.path.dirname(os.path.dirname(script_dir))
+    current_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    project_root = os.path.dirname(current_dir)
     default_config = os.path.join(project_root, 'SRC_rulesets', 'Forked_rulesets', 'forked_rulesets.yaml')
 
     target_config = sys.argv[1] if len(sys.argv) > 1 else default_config

@@ -1,0 +1,353 @@
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+allow-lan: true
+mode: rule
+log-level: info
+ipv6: false
+keep-alive-interval: 75
+keep-alive-idle: 300
+find-process-mode: off
+unified-delay: true
+tcp-concurrent: true
+external-controller: '127.0.0.1:9090'
+global-client-fingerprint: chrome
+geodata-mode: false
+profile:
+  store-selected: true
+  store-fake-ip: true
+dns:
+  enable: true
+  cache-algorithm: arc
+  ipv6: false
+  prefer-h3: true
+  respect-rules: true
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - "dns.alidns.com"
+    - "doh.pub"
+    - "dns.google"
+    - "cloudflare-dns.com"
+    - "rule-set:fakeipfilter"
+    - "rule-set:private"
+  default-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  nameserver-policy:
+    "geosite:cn":
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+    - 223.5.5.5
+    "rule-set:directdm":
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+    - 223.5.5.5
+  proxy-server-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  direct-nameserver-follow-policy: true
+  direct-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  nameserver:
+    - https://cloudflare-dns.com/dns-query#h3=true
+    - https://8.8.8.8/dns-query
+    - 8.8.8.8
+    - 223.5.5.5
+sniffer:
+  enable: true
+  force-dns-mapping: true
+  parse-pure-ip: true
+  override-destination: false
+  sniff:
+    HTTP:
+      ports: [80, 8080-8880]
+      override-destination: true
+    TLS:
+      ports: [443, 8443]
+    QUIC:
+      ports: [443, 8443]
+  skip-domain:
+    - "Mijia Cloud"
+    - "+.push.apple.com"
+    - "+.icloud.com"
+    - "+.apple.com"
+    - "+.google.com"
+    - "+.gstatic.com"
+    - "+.googleapis.com"
+    - "+.youtube.com"
+    - "+.microsoft.com"
+    - "+.office.com"
+    - "+.office365.com"
+    - "+.live.com"
+    - "+.sharepoint.com"
+    - "+.steampowered.com"
+    - "+.steamcontent.com"
+    - "+.steamserver.net"
+    - "+.epicgames.com"
+    - "+.battle.net"
+    - "+.cmbchina.com"
+    - "+.icbc.com.cn"
+    - "+.ccb.com"
+    - "+.abchina.com"
+    - "+.bankcomm.com"
+  skip-dst-address:
+    - "geosite:telegram"
+# 这里插入节点信息
+proxy-groups:
+  - name: 🌏默认代理
+    type: select
+    proxies:
+      - 🇭🇰香港
+      - 🇯🇵日本
+      - 🇹🇼台湾
+      - 🇸🇬新加坡
+      - 🇰🇷韩国
+      - 🇺🇸美国
+      - 🌐其他
+      - DIRECT
+  - name: 🇭🇰香港
+    type: select
+    include-all-proxies: true
+    filter: "(?i)港|hk|hongkong|hong kong|🇭🇰"
+    interval: 300
+    url: "https://www.gstatic.com/generate_204"
+    lazy: true
+    timeout: 5000
+    max-failed-times: 5
+  - name: 🇯🇵日本
+    type: select
+    include-all-proxies: true
+    filter: "(?i)日本|jp|japan|东京|ty|🇯🇵"
+    interval: 300
+    url: "https://www.gstatic.com/generate_204"
+    lazy: true
+    timeout: 5000
+    max-failed-times: 5
+  - name: 🇹🇼台湾
+    type: select
+    include-all-proxies: true
+    filter: "(?i)台|tw|taiwan|tp|🇹🇼"
+    interval: 300
+    url: "https://www.gstatic.com/generate_204"
+    lazy: true
+    timeout: 5000
+    max-failed-times: 5
+  - name: 🇸🇬新加坡
+    type: select
+    include-all-proxies: true
+    filter: "(?i)加坡|sg|singapore|sin|🇸🇬"
+    interval: 300
+    url: "https://www.gstatic.com/generate_204"
+    lazy: true
+    timeout: 5000
+    max-failed-times: 5
+  - name: 🇰🇷韩国
+    type: select
+    include-all-proxies: true
+    filter: "(?i)韩|kr|korea|首尔|seoul|🇰🇷"
+    interval: 300
+    url: "https://www.gstatic.com/generate_204"
+    lazy: true
+    timeout: 5000
+    max-failed-times: 5
+  - name: 🇺🇸美国
+    type: select
+    include-all-proxies: true
+    filter: "(?i)美|us|unitedstates|united states|americ|洛杉|la|纽约|ny|🇺🇸"
+    interval: 300
+    url: "https://www.gstatic.com/generate_204"
+    lazy: true
+    timeout: 5000
+    max-failed-times: 5
+  - name: 🌐其他
+    type: select
+    include-all-proxies: true
+    exclude-filter: "(?i)港|hk|hongkong|hong kong|🇭🇰|日本|jp|japan|东京|ty|🇯🇵|台|tw|taiwan|tp|🇹🇼|加坡|sg|singapore|sin|🇸🇬|韩|kr|korea|首尔|seoul|🇰🇷|美|us|unitedstates|united states|americ|洛杉|la|纽约|ny|🇺🇸|订阅|剩余|重置|到期|加入|机场|官网|地址|过期|xpire|raffic|websi|use|tota"
+    interval: 300
+    url: "https://www.gstatic.com/generate_204"
+    lazy: true
+    timeout: 5000
+    max-failed-times: 5
+  - name: 🚩信息
+    type: select
+    include-all-proxies: true
+    filter: "(?i)订阅|剩余|重置|到期|加入|机场|官网|地址|过期|xpire|raffic|websi|use|tota"
+    lazy: true
+  - name: ⚓稳定IP
+    type: select
+    proxies: ['🇭🇰香港', '🇯🇵日本', '🇹🇼台湾', '🇸🇬新加坡', '🌐其他']
+    include-all-proxies: true
+    filter: "(?i)港|hk|hongkong|hong kong|🇭🇰|日本|jp|japan|东京|ty|🇯🇵|台|tw|taiwan|tp|🇹🇼|加坡|sg|singapore|sin|🇸🇬"
+  - name: 🎮游戏线路
+    type: select
+    proxies: ['🇹🇼台湾', '🇭🇰香港', '🇯🇵日本', '🇰🇷韩国', '🌐其他', DIRECT]
+    include-all-proxies: true
+    filter: "(?i)港|hk|hongkong|hong kong|🇭🇰|日本|jp|japan|东京|ty|🇯🇵|台|tw|taiwan|tp|🇹🇼|韩|kr|korea|首尔|seoul|🇰🇷|游戏|game"
+  - name: 🎬影视线路
+    type: select
+    include-all-proxies: true
+    filter: "港|hk|hongkong|hong kong|🇭🇰|日本|jp|japan|东京|ty|🇯🇵|台|tw|taiwan|tp|🇹🇼|加坡|sg|singapore|sin|🇸🇬|韩|kr|korea|首尔|seoul|🇰🇷"
+  - name: ✨Ai线路
+    type: select
+    proxies: ['🇯🇵日本', '🇹🇼台湾', '🇸🇬新加坡', '🇺🇸美国', '🌐其他']
+    include-all-proxies: true
+    filter: "(?i)日本|jp|japan|东京|ty|🇯🇵|加坡|sg|singapore|sin|🇸🇬|美|us|unitedstates|united states|americ|洛杉|la|纽约|ny|🇺🇸"
+  - name: MS+Bing
+    type: select
+    proxies: ['⚓稳定IP', '🇭🇰香港', '🇯🇵日本', '🇹🇼台湾', '🇸🇬新加坡', '🇺🇸美国', '🌏默认代理', '🌐其他']
+  - name: OneDrive
+    type: select
+    proxies: [DIRECT, 'MS+Bing', '🌏默认代理']
+  - name: Google
+    type: select
+    proxies: ['🇯🇵日本', '🇭🇰香港', '🇸🇬新加坡', '🇺🇸美国', '🇹🇼台湾', '🇰🇷韩国', '🌐其他']
+  - name: Apple
+    type: select
+    proxies: [DIRECT, '🇯🇵日本', '🇭🇰香港', '🇸🇬新加坡', '🇺🇸美国', '🇹🇼台湾', '🇰🇷韩国', '🌐其他', '🌏默认代理']
+  - name: 外国媒体
+    type: select
+    proxies: ['⚓稳定IP', '🌏默认代理']
+  - name: 游戏下载
+    type: select
+    proxies: [DIRECT, '🌏默认代理', '🎮游戏线路', '🌐其他']
+  - name: 游戏平台
+    type: select
+    proxies: ['🎮游戏线路', DIRECT, '🌐其他']
+  - name: 🔎未命中
+    type: select
+    proxies: ['🌏默认代理', DIRECT]
+  - name: 🛑广告拦截
+    type: select
+    proxies: [REJECT, DIRECT]
+rule-providers:
+  fakeipfilter:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/JesterW365/Clash_Rulesets_Template@master/SRC_rulesets/Forked_rulesets/Converted_rulesets/fakeipfilter.yaml"
+    path: ./ruleset/fakeipfilter.yaml
+    interval: 86400
+  private:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/JesterW365/Clash_Rulesets_Template@master/SRC_rulesets/Forked_rulesets/Converted_rulesets/private.yaml"
+    path: ./ruleset/private.yaml
+    interval: 86400
+  predirect:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/JesterW365/Clash_Rulesets_Template@master/Generated_rulesets/predirect.yaml"
+    path: ./ruleset/predirect.yaml
+    interval: 86400
+  adrules:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/JesterW365/Clash_Rulesets_Template@master/Generated_rulesets/adrules.yaml"
+    path: ./ruleset/adrules.yaml
+    interval: 86400
+  msbing:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/JesterW365/Clash_Rulesets_Template@master/Generated_rulesets/msbing.yaml"
+    path: ./ruleset/msbing.yaml
+    interval: 86400
+  googleyoutube:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/JesterW365/Clash_Rulesets_Template@master/Generated_rulesets/googleyt.yaml"
+    path: ./ruleset/googleyt.yaml
+    interval: 86400
+  apple:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/JesterW365/Clash_Rulesets_Template@master/Generated_rulesets/appleicloud.yaml"
+    path: ./ruleset/appleicloud.yaml
+    interval: 86400
+  aiservice:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/JesterW365/Clash_Rulesets_Template@master/Generated_rulesets/aiservice.yaml"
+    path: ./ruleset/aiservice.yaml
+    interval: 86400
+  aiservicecn:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/JesterW365/Clash_Rulesets_Template@master/Generated_rulesets/aiservicecn.yaml"
+    path: ./ruleset/aiservicecn.yaml
+    interval: 86400
+  gamedownload:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/JesterW365/Clash_Rulesets_Template@master/Generated_rulesets/gamedownload.yaml"
+    path: ./ruleset/gamedownload.yaml
+    interval: 86400
+  gameplay:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/JesterW365/Clash_Rulesets_Template@master/Generated_rulesets/gameplay.yaml"
+    path: ./ruleset/gameplay.yaml
+    interval: 86400
+  gameplatform:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/JesterW365/Clash_Rulesets_Template@master/Generated_rulesets/gameplatform.yaml"
+    path: ./ruleset/gameplatform.yaml
+    interval: 86400
+  fixedmedias:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/JesterW365/Clash_Rulesets_Template@master/Generated_rulesets/fixedmedias.yaml"
+    path: ./ruleset/fixedmedias.yaml
+    interval: 86400
+  onedrive:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/JesterW365/Clash_Rulesets_Template@master/Generated_rulesets/onedrive.yaml"
+    path: ./ruleset/onedrive.yaml
+    interval: 86400
+  directdm:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/JesterW365/Clash_Rulesets_Template@master/SRC_rulesets/Forked_rulesets/Converted_rulesets/cn.yaml"
+    path: ./ruleset/cndm.yaml
+    interval: 86400
+  directip:
+    type: http
+    behavior: ipcidr
+    url: "https://cdn.jsdelivr.net/gh/JesterW365/Clash_Rulesets_Template@master/SRC_rulesets/Forked_rulesets/Converted_rulesets/cnip.yaml"
+    path: ./ruleset/cnip.yaml
+    interval: 86400
+  proxy:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/JesterW365/Clash_Rulesets_Template@master/SRC_rulesets/Forked_rulesets/Converted_rulesets/proxy.yaml"
+    path: ./ruleset/proxy.yaml
+    interval: 86400
+rules:
+  - DOMAIN-SUFFIX,netloading.net,DIRECT
+  - DOMAIN-SUFFIX,yunti.online,🎬影视线路
+  - DOMAIN-SUFFIX,mjji.de,🎬影视线路
+  - RULE-SET,fakeipfilter,DIRECT
+  - RULE-SET,private,DIRECT
+  - GEOIP,LAN,DIRECT,no-resolve
+  - RULE-SET,predirect,DIRECT
+  - RULE-SET,adrules,🛑广告拦截
+  - RULE-SET,gameplay,🎮游戏线路
+  - RULE-SET,msbing,MS+Bing
+  - RULE-SET,onedrive,OneDrive
+  - RULE-SET,googleyoutube,Google
+  - RULE-SET,apple,Apple
+  - RULE-SET,aiservice,✨Ai线路
+  - RULE-SET,aiservicecn,DIRECT
+  - RULE-SET,fixedmedias,外国媒体
+  - RULE-SET,gamedownload,游戏下载
+  - RULE-SET,gameplatform,游戏平台
+  - RULE-SET,proxy,🌏默认代理
+  - RULE-SET,directdm,DIRECT
+  - RULE-SET,directip,DIRECT
+  - DOMAIN-SUFFIX,cn,DIRECT
+  - GEOSITE,cn,DIRECT
+  - GEOIP,CN,DIRECT,no-resolve
+  - MATCH,🔎未命中
