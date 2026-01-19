@@ -16,6 +16,7 @@ proxy-groups:
   - name: 🇭🇰香港
     type: select
     include-all-proxies: true
+    include-all-providers: true
     filter: "(?i)港|hk|hongkong|hong kong|🇭🇰"
     interval: 300
     url: "https://www.gstatic.com/generate_204"
@@ -26,6 +27,7 @@ proxy-groups:
   - name: 🇯🇵日本
     type: select
     include-all-proxies: true
+    include-all-providers: true
     filter: "(?i)日本|jp|japan|东京|ty|🇯🇵"
     interval: 300
     url: "https://www.gstatic.com/generate_204"
@@ -36,6 +38,7 @@ proxy-groups:
   - name: 🇹🇼台湾
     type: select
     include-all-proxies: true
+    include-all-providers: true
     filter: "(?i)台|tw|taiwan|tp|🇹🇼"
     interval: 300
     url: "https://www.gstatic.com/generate_204"
@@ -46,6 +49,7 @@ proxy-groups:
   - name: 🇸🇬新加坡
     type: select
     include-all-proxies: true
+    include-all-providers: true
     filter: "(?i)加坡|sg|singapore|sin|🇸🇬"
     interval: 300
     url: "https://www.gstatic.com/generate_204"
@@ -56,6 +60,7 @@ proxy-groups:
   - name: 🇰🇷韩国
     type: select
     include-all-proxies: true
+    include-all-providers: true
     filter: "(?i)韩|kr|korea|首尔|seoul|🇰🇷"
     interval: 300
     url: "https://www.gstatic.com/generate_204"
@@ -66,6 +71,7 @@ proxy-groups:
   - name: 🇺🇸美国
     type: select
     include-all-proxies: true
+    include-all-providers: true
     filter: "(?i)美|us|unitedstates|united states|americ|洛杉|la|纽约|ny|🇺🇸"
     interval: 300
     url: "https://www.gstatic.com/generate_204"
@@ -76,6 +82,7 @@ proxy-groups:
   - name: 🌐其他
     type: select
     include-all-proxies: true
+    include-all-providers: true
     exclude-filter: "(?i)港|hk|hongkong|hong kong|🇭🇰|日本|jp|japan|东京|ty|🇯🇵|台|tw|taiwan|tp|🇹🇼|加坡|sg|singapore|sin|🇸🇬|韩|kr|korea|首尔|seoul|🇰🇷|美|us|unitedstates|united states|americ|洛杉|la|纽约|ny|🇺🇸|订阅|剩余|重置|到期|加入|机场|官网|地址|过期|xpire|raffic|websi|use|tota"
     interval: 300
     url: "https://www.gstatic.com/generate_204"
@@ -86,6 +93,7 @@ proxy-groups:
   - name: 🚩信息
     type: select
     include-all-proxies: true
+    include-all-providers: true
     filter: "(?i)订阅|剩余|重置|到期|加入|机场|官网|地址|过期|xpire|raffic|websi|use|tota"
     lazy: true
 

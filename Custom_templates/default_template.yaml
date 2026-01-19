@@ -93,8 +93,6 @@ sniffer:
     - "+.ccb.com"
     - "+.abchina.com"
     - "+.bankcomm.com"
-  skip-dst-address:
-    - "geosite:telegram"
 # 这里插入节点信息
 proxy-groups:
   - name: 🌏默认代理

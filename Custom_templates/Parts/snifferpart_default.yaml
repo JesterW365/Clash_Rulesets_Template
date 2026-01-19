@@ -35,5 +35,3 @@ sniffer:
     - "+.ccb.com"
     - "+.abchina.com"
     - "+.bankcomm.com"
-  skip-dst-address:
-    - "geosite:telegram"

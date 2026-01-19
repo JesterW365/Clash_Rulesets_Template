@@ -5,10 +5,14 @@ import json
 from datetime import datetime
 import time
 
+# ================= 工具函数区 =================
+
 def clean_content(content):
     """
-    清洗规则内容：移除注释、空行、空格行和 'payload:' 行。
-    返回清洗后的行列表（纯内容，不带 '- ' 前缀）。
+    清洗规则内容：
+    1. 移除注释、空行、空格行和 'payload:' 行。
+    2. 移除引号并提取核心内容（去除 '- ' 前缀）。
+    3. 永久移除 'PROCESS-', 'GEOSITE', 'GEOIP' 开头的规则。
     """
     if isinstance(content, str):
         lines = content.splitlines()
@@ -18,34 +22,78 @@ def clean_content(content):
         return []
 
     cleaned = []
+    banned_prefixes = ('PROCESS-', 'GEOSITE', 'GEOIP')
+
     for line in lines:
         line = line.strip()
-        # 1. 移除空行
-        if not line:
-            continue
-        # 2. 移除注释
-        if line.startswith('#'):
-            continue
-        # 3. 移除 payload: 行
-        if line.lower() == 'payload:':
-            continue
+        if not line: continue
+        if line.startswith('#'): continue
+        if line.lower() == 'payload:': continue
         
-        # 4. 如果是以 '- ' 开头，提取核心内容
+        core = ""
         if line.startswith('- '):
-            core = line[2:].strip()
-            # 再次检查 core 是否有效
-            if core and not core.startswith('#'):
-                cleaned.append(core.strip("'").strip('"'))
+            temp_core = line[2:].strip()
+            if temp_core and not temp_core.startswith('#'):
+                core = temp_core.strip("'").strip('"')
         else:
-            # 纯文本行，直接处理
-            cleaned.append(line.strip("'").strip('"'))
+            core = line.strip("'").strip('"')
+            
+        if core:
+            upper_core = core.upper()
+            if upper_core.startswith(banned_prefixes):
+                continue
+            cleaned.append(core)
             
     return cleaned
 
+def optimize_domains(domain_list):
+    """域名去重核心逻辑：+.abc.com 覆盖 *.abc.com"""
+    temp_set = set(domain_list)
+    suffix_roots = set()
+    
+    for d in temp_set:
+        if d.startswith('+.'):
+            suffix_roots.add(d[2:].lower())
+    
+    final_domains = []
+    for d in sorted(list(temp_set)):
+        if d.startswith('+.'):
+            final_domains.append(d)
+            continue
+            
+        check_str = d.lower()
+        if check_str.startswith('*.'):
+            check_str = check_str[2:]
+            
+        parts = check_str.split('.')
+        is_covered = False
+        for i in range(len(parts)):
+            sub_domain = ".".join(parts[i:])
+            if sub_domain in suffix_roots:
+                is_covered = True
+                break
+        
+        if not is_covered:
+            final_domains.append(d)
+            
+    return final_domains
+
+def format_for_classical(rule, rule_type):
+    """还原 Classical 格式"""
+    if rule_type == 'domain':
+        if rule.startswith('+.'):
+            return f"DOMAIN-SUFFIX,{rule[2:]}"
+        else:
+            return f"DOMAIN,{rule}"
+    elif rule_type == 'ip':
+        if '/' in rule:
+            return f"IP-CIDR,{rule}"
+        else:
+            return f"IP-CIDR,{rule}/32"
+    return rule
+
 def parse_rulesets_yaml(file_path):
-    """
-    解析主配置文件，增加严格的非空和合法类型校验。
-    """
+    """解析主配置文件"""
     if not os.path.exists(file_path):
         print(f"错误: 文件 {file_path} 不存在。")
         return {}
@@ -57,54 +105,27 @@ def parse_rulesets_yaml(file_path):
             print(f"解析 YAML 文件时出错: {e}")
             return {}
 
-    if not isinstance(data, dict):
-        print("错误: YAML 文件根格式应为字典")
-        return {}
-
     parsed_data = {}
-    summary_lines = []
-    file_name = os.path.basename(file_path)
+    if not isinstance(data, dict): return {}
 
     for group_title, group_content in data.items():
-        # 检查 group_title 不能为空或空格
-        if not group_title or not str(group_title).strip():
-            continue
-
-        if not isinstance(group_content, dict):
-            continue
+        if not group_title or not str(group_title).strip(): continue
+        if not isinstance(group_content, dict): continue
         
-        # 检查 groupname 不能为空或空格
         group_name = group_content.get('groupname')
-        if not group_name or not str(group_name).strip():
-            continue
-            
+        if not group_name: continue
         src_list = group_content.get('src')
-        if not isinstance(src_list, list):
-            continue
+        if not isinstance(src_list, list): continue
 
         valid_rulesets = []
         for rs in src_list:
-            if not isinstance(rs, dict):
-                continue
+            if not isinstance(rs, dict): continue
+            if not rs.get('name') or not rs.get('url'): continue
             
-            rs_name = rs.get('name')
-            rs_type = rs.get('type')
-            rs_url = rs.get('url')
-            
-            # 校验 rulesetname 不能为空
-            if not rs_name or not str(rs_name).strip():
-                continue
-            # 校验 rulesettype 必须合法
-            if rs_type not in ['classical', 'domain', 'ipcidr']:
-                continue
-            # 校验 ruleseturl 不能为空
-            if not rs_url or not str(rs_url).strip():
-                continue
-                
             valid_rulesets.append({
-                'name': rs_name,
-                'type': rs_type,
-                'url': rs_url
+                'name': rs.get('name'),
+                'type': rs.get('type', 'classical'),
+                'url': rs.get('url')
             })
         
         if valid_rulesets:
@@ -112,131 +133,60 @@ def parse_rulesets_yaml(file_path):
                 'groupname': group_name,
                 'rulesets': valid_rulesets
             }
-            summary_lines.append(f"‘{group_title}’ - 包含 {len(valid_rulesets)} 个规则集")
 
-    print(f"从 {file_name} 解析了 {len(parsed_data)} 个规则组，分别为：")
-    for line in summary_lines:
-        print(line)
-
+    print(f"已解析配置，共 {len(parsed_data)} 个规则组。")
     return parsed_data
 
-def convert_ruleset(ruleset_name, ruleset_type, ruleset_content, bypass_threshold=False):
-    """
-    负责对单源内容进行初步解析和标准化。
-    参数 bypass_threshold 用于控制是否在函数内部强制执行 1200 条转换逻辑。
-    通常在 merge_and_save_rulesets 中调用时，我们会汇总后再定夺。
-    """
-    if ruleset_type not in ['classical', 'domain', 'ipcidr']:
-        return []
-
-    core_rules = clean_content(ruleset_content)
-    if not core_rules:
-        return []
-
-    # 如果原始就是 domain 或 ipcidr 类型，直接返回（带引号）
-    if ruleset_type in ['domain', 'ipcidr']:
-        final_content = "\n".join([f"- '{r}'" for r in core_rules])
-        return [{'name': ruleset_name, 'type': ruleset_type, 'content': final_content, 'raw_rules': core_rules}]
-
-    # 如果是 classical，如果没有强制转换，先按原样 classical 返回
-    # 延迟具体的转换逻辑到更高层 merge_and_save_rulesets
-    if ruleset_type == 'classical':
-        # 内部仍然保留原有的转换检测逻辑，供单函数调用时使用
-        if bypass_threshold:
-            # 这里的逻辑只有在独立调用或强制转换时使用
-            # 保持现有逻辑不变以兼容旧的测试用例
-            has_domain = any('DOMAIN' in r.upper() for r in core_rules)
-            has_ip = any('IP-' in r.upper() for r in core_rules)
-            if not has_domain and not has_ip:
-                return [{'name': ruleset_name, 'type': 'classical', 'content': "\n".join([f"- {r}" for r in core_rules]), 'raw_rules': core_rules}]
-            
-            domain_rules = []
-            ip_rules = []
-            for r in core_rules:
-                parts = r.split(',')
-                if len(parts) < 2: continue
-                prefix, val = parts[0].strip().upper(), parts[1].strip()
-                if prefix == 'DOMAIN': domain_rules.append(val)
-                elif prefix == 'DOMAIN-SUFFIX': domain_rules.append(f"+.{val}")
-                elif prefix in ['IP-CIDR', 'IP-SUFFIX']: ip_rules.append(val)
-
-            if has_domain and has_ip and len(core_rules) > 1200:
-                res = []
-                if domain_rules: res.append({'name': f"{ruleset_name}_dm", 'type': 'domain', 'content': "\n".join([f"- '{r}'" for r in domain_rules]), 'raw_rules': domain_rules})
-                if ip_rules: res.append({'name': f"{ruleset_name}_ip", 'type': 'ipcidr', 'content': "\n".join([f"- '{r}'" for r in ip_rules]), 'raw_rules': ip_rules})
-                return res
-            
-            if domain_rules and not ip_rules:
-                return [{'name': ruleset_name, 'type': 'domain', 'content': "\n".join([f"- '{r}'" for r in domain_rules]), 'raw_rules': domain_rules}]
-            if ip_rules and not domain_rules:
-                return [{'name': ruleset_name, 'type': 'ipcidr', 'content': "\n".join([f"- '{r}'" for r in ip_rules]), 'raw_rules': ip_rules}]
-
-        # 默认模式：返回标准化的 Classical
-        return [{'name': ruleset_name, 'type': 'classical', 'content': "\n".join([f"- {r}" for r in core_rules]), 'raw_rules': core_rules}]
-
-    return []
-
-    return []
-
-    return []
-
 def fetch_ruleset_content(url, retries=3):
-    """从网络获取规则集内容"""
+    """下载规则内容"""
+    print(f"  -> 正在下载: {url} ...", end="", flush=True)
     for i in range(retries):
         try:
-            response = requests.get(url, timeout=10)
+            response = requests.get(url, timeout=5)
             if response.status_code == 200:
+                print(" [成功]")
                 return response.text
+            else:
+                print(f" [{response.status_code}]", end="", flush=True)
         except Exception as e:
-            print(f"获取 {url} 失败 ({i+1}/{retries}): {e}")
+            if i < retries - 1:
+                print(f" [R{i+1}]", end="", flush=True)
+            else:
+                print(" [失败]")
             time.sleep(1)
     return None
 
 def parse_supply_files(supply_dir):
-    """解析指定目录下的 supply_*.yaml 文件"""
-    supply_data = {} # {group_name: [ruleset_info, ...]}
+    """
+    解析补丁文件 (修正版)
+    仅读取 payload 列表，避免读取到 header 元数据
+    """
+    supply_data = {} 
     if not os.path.exists(supply_dir):
         return supply_data
 
     for filename in os.listdir(supply_dir):
-        if filename.startswith('supply_') and filename.endswith('.yaml') and filename != 'supply_.yaml':
+        if filename.startswith('supply_') and filename.endswith('.yaml'):
             file_path = os.path.join(supply_dir, filename)
-            with open(file_path, 'r', encoding='utf-8') as f:
-                content = f.read()
-            
-            # 基础解析获取元数据
             try:
-                # 简单加载以获取字段，因为 content 可能是带注释或不规范的
-                raw_data = yaml.safe_load(content)
-                if not raw_data or not isinstance(raw_data, dict): continue
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    raw = yaml.safe_load(f)
                 
-                group_name = raw_data.get('groupname')
-                rs_type = raw_data.get('type')
-                payload = raw_data.get('payload')
+                if not raw or not isinstance(raw, dict): continue
                 
-                if not group_name or not rs_type or not payload: continue
+                group_name = raw.get('groupname')
+                payload = raw.get('payload') # 获取 list 对象
                 
-                # 处理 ruleset_name
-                rs_name = raw_data.get('name')
-                if not rs_name or str(rs_name).strip() == "":
-                    rs_name = os.path.splitext(filename)[0]
-                
-                # 处理 payload: 使用 clean_content 统一清洗
-                cleaned_rs_content = clean_content(content)
-                if not cleaned_rs_content: continue
-                
-                # 特殊逻辑：如果在原始文本中（排除空行和注释后）存在没有 '- ' 前缀的内容，则舍弃
-                # parse_supply_files 的语义是处理 YAML 格式。这里我们要二次验证。
-                lines_for_check = [l.strip() for l in content.splitlines() if l.strip() and not l.strip().startswith('#') and l.strip().lower() != 'payload:']
-                if any(not l.startswith('- ') for l in lines_for_check):
+                if not group_name or not payload or not isinstance(payload, list): 
                     continue
-                
-                # 转换为标准格式以便后续使用 convert_ruleset
-                # convert_ruleset 会自动应用引号规则
+
+                # 传入 list，clean_content 会清洗 list 中的每一项
+                cleaned = clean_content(payload)
+                if not cleaned: continue
+
                 rs_info = {
-                    'name': rs_name,
-                    'type': rs_type,
-                    'content': "\n".join([f"- {r}" for r in cleaned_rs_content])
+                    'name': raw.get('name', filename),
+                    'content': "\n".join([f"- {r}" for r in cleaned])
                 }
                 
                 if group_name not in supply_data:
@@ -244,15 +194,13 @@ def parse_supply_files(supply_dir):
                 supply_data[group_name].append(rs_info)
                 
             except Exception as e:
-                print(f"解析补丁文件 {filename} 出错: {e}")
+                print(f"解析补丁 {filename} 出错: {e}")
                 continue
-                
     return supply_data
 
+# ================= 核心逻辑区 =================
+
 def merge_and_save_rulesets(base_results, supply_folder_path, target_output_dir):
-    """
-    重写后的逻辑：全 Group 汇总后再进行 1200 条阈值判断。
-    """
     if not os.path.exists(target_output_dir):
         os.makedirs(target_output_dir)
 
@@ -264,82 +212,75 @@ def merge_and_save_rulesets(base_results, supply_folder_path, target_output_dir)
         group_name = group_info['groupname']
         rulesets = group_info['rulesets']
         
-        # 用于累积该组所有的原始规则行
-        all_raw_rules = [] # 存储 classical 格式的行
+        print(f"\n[处理中] 规则组: {group_title} ({group_name})")
         
-        # A. 提取网络规则
+        all_raw_rules = [] 
+        
+        # 1. 下载
         for rs in rulesets:
             content = fetch_ruleset_content(rs['url'])
             if content:
-                # 统一获取清洗后的核心内容
                 all_raw_rules.extend(clean_content(content))
-            else:
-                print(f"警告: 规则集 {rs['name']} 内容为空或获取失败。")
         
-        # B. 提取 Supply 规则
+        # 2. 合并补丁
         if group_name in supply_dict:
+            print(f"  -> 合并本地补丁: {len(supply_dict[group_name])} 个文件")
             for s_rs in supply_dict[group_name]:
-                # s_rs['content'] 已经是 clean 且 standard 的 YAML 字符串
                 all_raw_rules.extend(clean_content(s_rs['content']))
 
-        # 去重，保持大致顺序
-        all_raw_rules = list(dict.fromkeys(all_raw_rules))
-        if not all_raw_rules: continue
+        if not all_raw_rules:
+            print("  -> 无有效规则，跳过。")
+            continue
 
-        total_count = len(all_raw_rules)
+        # 3. 分类 (Raw -> Standard)
+        dm_pool = []
+        ip_pool = []
         
-        # --- 最终版决策逻辑：单一转换优先 ---
-        valid_outputs = [] # [{'type':..., 'rules': [...]}]
-        dm_rules = []
-        ip_rules = []
-        
-        # 统计经过“标准化提取”后能保留下来的核心规则
         for r in all_raw_rules:
             parts = r.split(',')
             if len(parts) >= 2:
                 prefix, val = parts[0].strip().upper(), parts[1].strip()
-                # 仅保留这四类核心规则用于转换
-                if prefix == 'DOMAIN': dm_rules.append(val)
-                elif prefix == 'DOMAIN-SUFFIX': dm_rules.append(f"+.{val}")
-                elif prefix in ['IP-CIDR', 'IP-SUFFIX']: ip_rules.append(val)
-                # 其余前缀（KEYWORD, PROCESS-NAME 等）在这里被“舍弃”不计入池子
+                if prefix == 'DOMAIN': dm_pool.append(val)
+                elif prefix == 'DOMAIN-SUFFIX': dm_pool.append(f"+.{val}")
+                elif prefix in ['IP-CIDR', 'IP-CIDR6', 'IP-SUFFIX']: ip_pool.append(val)
             else:
-                # 已经是纯内容行
-                if '/' in r or (r.replace('.','').isdigit()): ip_rules.append(r)
-                else: dm_rules.append(r)
+                # 纯内容判断修正：排除带空格的行（避免 key: value 被误判为 IPv6）
+                if ('/' in r) or (r.replace('.','').isdigit()) or (':' in r and ' ' not in r):
+                    ip_pool.append(r)
+                else:
+                    dm_pool.append(r)
 
-        # 决策逻辑如下：
+        # 4. 去重与优化
+        count_before = len(dm_pool) + len(ip_pool)
+        ip_pool = sorted(list(set(ip_pool)))
+        dm_pool = optimize_domains(dm_pool)
         
-        # 1. 如果通过舍弃非核心规则后，能归属到单一的 domain 或 ipcidr 类型
-        if dm_rules and not ip_rules:
-            valid_outputs.append({'type': 'domain', 'rules': dm_rules})
-        elif ip_rules and not dm_rules:
-            valid_outputs.append({'type': 'ipcidr', 'rules': ip_rules})
-            
-        # 2. 如果核心规则（Domain 和 IP）依然是混合的
-        elif dm_rules and ip_rules:
-            # 判断原数据总数是否超过 1200 条
-            if total_count <= 1200:
-                # 规则少且混合：为了不产生碎片文件，退回到 Classical（包含所有原始行，不舍弃任何内容）
-                valid_outputs.append({'type': 'classical', 'rules': all_raw_rules})
-            else:
-                # 规则多：进行规范化拆分（此时非核心规则会被舍弃）
-                valid_outputs.append({'type': 'domain', 'rules': dm_rules})
-                valid_outputs.append({'type': 'ipcidr', 'rules': ip_rules})
-        
-        # 3. 如果通过过滤后核心规则池为空（比如这个组全是 KEYWORD 或 PROCESS-NAME）
-        elif not dm_rules and not ip_rules:
-            # 按原样 Classical 输出
-            valid_outputs.append({'type': 'classical', 'rules': all_raw_rules})
+        count_after = len(dm_pool) + len(ip_pool)
+        print(f"  -> 规则优化: {count_before} -> {count_after} (去重: {count_before - count_after})")
 
-        # --- 保存阶段 ---
+        # 5. 输出决策
+        valid_outputs = [] 
+        total_count = len(dm_pool) + len(ip_pool)
+        
+        if dm_pool and not ip_pool:
+            valid_outputs.append({'type': 'domain', 'rules': dm_pool})
+        elif ip_pool and not dm_pool:
+            valid_outputs.append({'type': 'ipcidr', 'rules': ip_pool})
+        elif dm_pool and ip_pool and total_count > 1200:
+            valid_outputs.append({'type': 'domain', 'rules': dm_pool})
+            valid_outputs.append({'type': 'ipcidr', 'rules': ip_pool})
+        else: # 混合且少量 -> Classical
+            combined_rules = []
+            for d in dm_pool: combined_rules.append(format_for_classical(d, 'domain'))
+            for i in ip_pool: combined_rules.append(format_for_classical(i, 'ip'))
+            valid_outputs.append({'type': 'classical', 'rules': combined_rules})
+
+        # 6. 保存
         type_suffixes = {'classical': '', 'domain': '_dm', 'ipcidr': '_ip'}
-
         for out in valid_outputs:
             r_type = out['type']
             rules = out['rules']
             
-            # 文件名逻辑
             if len(valid_outputs) == 1:
                 out_name = group_name
             else:
@@ -352,7 +293,7 @@ def merge_and_save_rulesets(base_results, supply_folder_path, target_output_dir)
                 if rt == 'classical': return f"  - {rule}"
                 else: return f"  - '{rule}'"
 
-            header = f"# Ruleset Type:  {r_type}\n# Generated time: {generated_time}\npayload:\n"
+            header = f"# Ruleset Type:  {r_type}\n# Generated time: {generated_time}\n# Rule Count: {len(rules)}\npayload:\n"
             content_payload = "\n".join([finalize_fmt(r, r_type) for r in rules])
             
             with open(file_path, 'w', encoding='utf-8') as f:
@@ -364,6 +305,5 @@ def merge_and_save_rulesets(base_results, supply_folder_path, target_output_dir)
     with open(json_path, 'w', encoding='utf-8') as f:
         json.dump(final_output_info, f, ensure_ascii=False, indent=2)
 
-    print(f"合并完成，共生成 {len(final_output_info)} 个规则文件，详情见 {json_path}")
+    print(f"\n全部完成！共生成 {len(final_output_info)} 个文件。")
     return final_output_info
-

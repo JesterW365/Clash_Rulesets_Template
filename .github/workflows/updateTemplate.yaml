@@ -1,0 +1,36 @@
+name: Update All Rules from SRC_rulesets
+
+on:
+  workflow_dispatch:
+    # 允许手动触发工作流
+    
+permissions:
+  contents: write
+
+jobs:
+  update-rules:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Run Python script to merge Net rules
+        run: |
+          python Scripts/template_parts_merge/template_merge.py
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add Custom_templates/*.yaml
+          git commit -m "Auto-update rules" || echo "No changes to commit"
+          # 使用 GITHUB_TOKEN 进行认证
+          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}

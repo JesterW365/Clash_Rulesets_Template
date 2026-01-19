@@ -1,5 +1,6 @@
 # Ruleset Type:  domain
-# Generated time: 2026-01-14 20:27:45
+# Generated time: 2026-01-19 13:24:05
+# Rule Count: 13
 payload:
   - '+.1drv.com'
   - '+.livefilestore.com'

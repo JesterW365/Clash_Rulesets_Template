@@ -1,7 +1,7 @@
 # Ruleset Type:  classical
-# Generated time: 2026-01-14 20:27:45
+# Generated time: 2026-01-19 13:24:05
+# Rule Count: 876
 payload:
-  - DOMAIN,voice.telephony.goog
   - DOMAIN-SUFFIX,0emm.com
   - DOMAIN-SUFFIX,1e100.net
   - DOMAIN-SUFFIX,1ucrs.com
@@ -230,6 +230,8 @@ payload:
   - DOMAIN-SUFFIX,getmdl.io
   - DOMAIN-SUFFIX,getoutline.org
   - DOMAIN-SUFFIX,ggoogle.com
+  - DOMAIN-SUFFIX,ggpht.cn
+  - DOMAIN-SUFFIX,ggpht.com
   - DOMAIN-SUFFIX,gipscorp.com
   - DOMAIN-SUFFIX,gkecnapps.cn
   - DOMAIN-SUFFIX,globaledu.org
@@ -470,6 +472,7 @@ payload:
   - DOMAIN-SUFFIX,googlecompare.co.uk
   - DOMAIN-SUFFIX,googledanmark.com
   - DOMAIN-SUFFIX,googledomains.com
+  - DOMAIN-SUFFIX,googledrive.com
   - DOMAIN-SUFFIX,googlee.com
   - DOMAIN-SUFFIX,googleearth.com
   - DOMAIN-SUFFIX,googlefiber.com
@@ -497,8 +500,10 @@ payload:
   - DOMAIN-SUFFIX,googletagservices.com
   - DOMAIN-SUFFIX,googletraveladservices-cn.com
   - DOMAIN-SUFFIX,googletraveladservices.com
+  - DOMAIN-SUFFIX,googleusercontent.com
   - DOMAIN-SUFFIX,googlevads-cn.com
   - DOMAIN-SUFFIX,googleventures.com
+  - DOMAIN-SUFFIX,googlevideo.com
   - DOMAIN-SUFFIX,googlr.com
   - DOMAIN-SUFFIX,goolge.com
   - DOMAIN-SUFFIX,gooogle.com
@@ -512,7 +517,9 @@ payload:
   - DOMAIN-SUFFIX,gv.com
   - DOMAIN-SUFFIX,gvt0.com
   - DOMAIN-SUFFIX,gvt1-cn.com
+  - DOMAIN-SUFFIX,gvt1.com
   - DOMAIN-SUFFIX,gvt2-cn.com
+  - DOMAIN-SUFFIX,gvt2.com
   - DOMAIN-SUFFIX,gvt3.com
   - DOMAIN-SUFFIX,gvt5.com
   - DOMAIN-SUFFIX,gvt6.com
@@ -657,6 +664,7 @@ payload:
   - DOMAIN-SUFFIX,verilystudyhub.com
   - DOMAIN-SUFFIX,verilystudywatch.com
   - DOMAIN-SUFFIX,verilystudywatch.org
+  - DOMAIN-SUFFIX,video.google.com
   - DOMAIN-SUFFIX,wallet.com
   - DOMAIN-SUFFIX,waveprotocol.org
   - DOMAIN-SUFFIX,waymo.com
@@ -669,8 +677,10 @@ payload:
   - DOMAIN-SUFFIX,webrtc.org
   - DOMAIN-SUFFIX,weltweitwachsen.de
   - DOMAIN-SUFFIX,whatbrowser.org
+  - DOMAIN-SUFFIX,wide-youtube.l.google.com
   - DOMAIN-SUFFIX,widevine.com
   - DOMAIN-SUFFIX,withgoogle.com
+  - DOMAIN-SUFFIX,withyoutube.com
   - DOMAIN-SUFFIX,womenwill.com
   - DOMAIN-SUFFIX,womenwill.com.br
   - DOMAIN-SUFFIX,womenwill.id
@@ -689,34 +699,6 @@ payload:
   - DOMAIN-SUFFIX,xn--ngstr-lra8j.com
   - DOMAIN-SUFFIX,xn--p8j9a0d9c9a.xn--q9jyb4c
   - DOMAIN-SUFFIX,xplr.co
-  - DOMAIN-SUFFIX,zukunftswerkstatt.de
-  - DOMAIN-SUFFIX,zynamics.com
-  - DOMAIN-SUFFIX,googledrive.com
-  - DOMAIN-SUFFIX,googleusercontent.com
-  - DOMAIN-KEYWORD,appspot
-  - DOMAIN-KEYWORD,blogspot
-  - DOMAIN-KEYWORD,gmail
-  - DOMAIN-KEYWORD,google
-  - DOMAIN-KEYWORD,recaptcha
-  - IP-CIDR,172.110.32.0/21
-  - IP-CIDR,173.194.0.0/16
-  - IP-CIDR,216.73.80.0/20
-  - IP-CIDR,74.125.0.0/16
-  - IP-CIDR6,2620:120:e000::/40
-  - PROCESS-NAME,GoogleDriveFS.exe
-  - PROCESS-NAME,com.android.vending
-  - PROCESS-NAME,com.google.android.gms
-  - PROCESS-NAME,com.google.android.gsf
-  - PROCESS-NAME,com.google.android.play.games
-  - PROCESS-NAME,BackupandSync
-  - DOMAIN-SUFFIX,ggpht.cn
-  - DOMAIN-SUFFIX,ggpht.com
-  - DOMAIN-SUFFIX,googlevideo.com
-  - DOMAIN-SUFFIX,gvt1.com
-  - DOMAIN-SUFFIX,gvt2.com
-  - DOMAIN-SUFFIX,video.google.com
-  - DOMAIN-SUFFIX,wide-youtube.l.google.com
-  - DOMAIN-SUFFIX,withyoutube.com
   - DOMAIN-SUFFIX,youtu.be
   - DOMAIN-SUFFIX,youtube
   - DOMAIN-SUFFIX,youtube-nocookie.com
@@ -888,4 +870,11 @@ payload:
   - DOMAIN-SUFFIX,youtubemobilesupport.com
   - DOMAIN-SUFFIX,yt.be
   - DOMAIN-SUFFIX,ytimg.com
-  - DOMAIN-KEYWORD,youtube
+  - DOMAIN-SUFFIX,zukunftswerkstatt.de
+  - DOMAIN-SUFFIX,zynamics.com
+  - DOMAIN,voice.telephony.goog
+  - IP-CIDR,172.110.32.0/21
+  - IP-CIDR,173.194.0.0/16
+  - IP-CIDR,216.73.80.0/20
+  - IP-CIDR,2620:120:e000::/40
+  - IP-CIDR,74.125.0.0/16

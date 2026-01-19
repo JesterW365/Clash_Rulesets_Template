@@ -1,15 +1,15 @@
 {
   "predirect": {
     "group_type": "classical",
-    "rule_count": 169
+    "rule_count": 166
   },
   "adrules": {
     "group_type": "domain",
-    "rule_count": 157606
+    "rule_count": 156738
   },
   "msbing": {
     "group_type": "domain",
-    "rule_count": 668
+    "rule_count": 664
   },
   "onedrive": {
     "group_type": "domain",
@@ -17,11 +17,11 @@
   },
   "googleyt": {
     "group_type": "classical",
-    "rule_count": 888
+    "rule_count": 876
   },
   "aiservice": {
     "group_type": "classical",
-    "rule_count": 79
+    "rule_count": 74
   },
   "aiservicecn": {
     "group_type": "domain",
@@ -33,7 +33,7 @@
   },
   "fixedmedias": {
     "group_type": "classical",
-    "rule_count": 691
+    "rule_count": 671
   },
   "gamedownload": {
     "group_type": "domain",
@@ -41,10 +41,10 @@
   },
   "gameplay": {
     "group_type": "classical",
-    "rule_count": 597
+    "rule_count": 593
   },
   "gameplatform": {
     "group_type": "classical",
-    "rule_count": 365
+    "rule_count": 361
   }
 }

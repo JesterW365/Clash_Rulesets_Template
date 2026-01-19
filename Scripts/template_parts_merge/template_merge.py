@@ -86,9 +86,10 @@ def merge_template(template_name, parts_dir, head_name, dns_name, sniffer_name=N
     return output_path
 
 if __name__ == "__main__":
-    name = "default_template"
     current_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     project_root = os.path.dirname(current_dir)
+
+    name = "default_template"
     parts_dir = os.path.join(project_root, 'Custom_templates', 'Parts')
     head_name = "default"
     dns_name = "default"
