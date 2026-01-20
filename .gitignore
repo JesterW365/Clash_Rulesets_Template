@@ -1,0 +1,12 @@
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# vscode/agent/idea
+.vscode/
+.idea/
+.agent/
+.skills/
+.kiro/
+.gemini/
