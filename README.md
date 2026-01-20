@@ -8,7 +8,7 @@
 
 其基于Custom_templates/Parts中 \*\_default.yaml文件生成，处于不定时维护；
 
-可以修改将headpart/dnspart/snifferpart/strategypart/rulespart修改相同的后缀名用script进行合并成自己的模板，其中strategy和rules两个部分必须要有。
+可以将headpart/dnspart/snifferpart/strategypart/rulespart修改为相同的后缀名用script进行合并成自己的模板，其中strategy和rules两个部分必须要有。
 
 ## 规则碎片
 
