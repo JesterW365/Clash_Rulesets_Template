@@ -1,6 +1,6 @@
 # Ruleset Type:  classical
-# Generated time: 2026-01-19 13:24:05
-# Rule Count: 166
+# Generated time: 2026-01-20 11:40:54
+# Rule Count: 176
 payload:
   - DOMAIN-SUFFIX,0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
   - DOMAIN-SUFFIX,0.in-addr.arpa
@@ -101,8 +101,10 @@ payload:
   - DOMAIN-SUFFIX,b.e.f.ip6.arpa
   - DOMAIN-SUFFIX,cm.steampowered.com
   - DOMAIN-SUFFIX,d.f.ip6.arpa
+  - DOMAIN-SUFFIX,diagrams.net
   - DOMAIN-SUFFIX,hiwifi.com
   - DOMAIN-SUFFIX,home.arpa
+  - DOMAIN-SUFFIX,koofer.net
   - DOMAIN-SUFFIX,leike.cc
   - DOMAIN-SUFFIX,localhost.ptlogin2.qq.com
   - DOMAIN-SUFFIX,localhost.sec.qq.com
@@ -124,6 +126,9 @@ payload:
   - DOMAIN-SUFFIX,tplogin.cn
   - DOMAIN-SUFFIX,ts.net
   - DOMAIN-SUFFIX,wifi.cmcc
+  - DOMAIN-SUFFIX,x6g.com
+  - DOMAIN-SUFFIX,xdgame.com
+  - DOMAIN-SUFFIX,xiaodao.biz
   - DOMAIN-SUFFIX,zte.home
   - DOMAIN,assets1.xboxlive.cn
   - DOMAIN,assets2.xboxlive.cn
@@ -134,8 +139,12 @@ payload:
   - DOMAIN,dl.steam.ksyna.com
   - DOMAIN,dota2.wmsj.cn
   - DOMAIN,epicgames-download1-1251447533.file.myqcloud.com
+  - DOMAIN,gamer520.com
   - DOMAIN,instant.arubanetworks.com
+  - DOMAIN,jisuchuan.com
+  - DOMAIN,mindmaps.app
   - DOMAIN,oasisauth.h3c.com
+  - DOMAIN,pansou.app
   - DOMAIN,router.asus.com
   - DOMAIN,setmeup.arubanetworks.com
   - DOMAIN,st.dl.bscstorage.net
@@ -147,6 +156,7 @@ payload:
   - DOMAIN,tlu.dl.delivery.mp.microsoft.com
   - DOMAIN,trts.baishancdnx.cn
   - DOMAIN,uplaypc-s-ubisoft.cdn.ubionline.com.cn
+  - DOMAIN,webnote.cc
   - DOMAIN,wmsjsteam.com
   - DOMAIN,www.asusrouter.com
   - DOMAIN,xz.pphimalayanrt.com

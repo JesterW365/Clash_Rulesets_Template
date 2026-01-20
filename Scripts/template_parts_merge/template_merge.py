@@ -71,8 +71,8 @@ def merge_template(template_name, parts_dir, head_name, dns_name, sniffer_name=N
             prefix = parts_config[i][0]
             
             # 在 strategypart 之前插入注释
-            if prefix == 'strategypart_':
-                outfile.write('# 这里插入节点信息\n')
+            # if prefix == 'strategypart_':
+            #     outfile.write('# 这里插入节点信息\n')
             
             with open(filepath, 'r', encoding='utf-8') as infile:
                 for line in infile:

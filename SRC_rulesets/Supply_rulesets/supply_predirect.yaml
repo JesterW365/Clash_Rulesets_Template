@@ -1,0 +1,14 @@
+# The author collected predirect rules
+groupname: predirect
+type: classical
+payload:
+  - DOMAIN,webnote.cc
+  - DOMAIN,jisuchuan.com
+  - DOMAIN,gamer520.com
+  - DOMAIN,mindmaps.app
+  - DOMAIN-SUFFIX,xiaodao.biz
+  - DOMAIN-SUFFIX,x6g.com
+  - DOMAIN-SUFFIX,xdgame.com
+  - DOMAIN-SUFFIX,diagrams.net
+  - DOMAIN,pansou.app
+  - DOMAIN-SUFFIX,koofer.net
