@@ -1,4 +1,4 @@
-name: Update All Rules from SRC_rulesets
+name: Update template from template_parts
 
 on:
   workflow_dispatch:
