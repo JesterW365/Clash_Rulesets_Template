@@ -113,10 +113,11 @@ proxy-groups:
     include-all-proxies: true
     filter: "(?i)港|hk|hongkong|hong kong|🇭🇰|日本|jp|japan|东京|ty|🇯🇵|台|tw|taiwan|tp|🇹🇼|韩|kr|korea|首尔|seoul|🇰🇷|游戏|game"
   
-  # EMBY专用(亚洲)
+  # 特殊影视专用
   - name: 🎬影视线路
     type: select
     include-all-proxies: true
+    include-all-providers: true
     filter: "港|hk|hongkong|hong kong|🇭🇰|日本|jp|japan|东京|ty|🇯🇵|台|tw|taiwan|tp|🇹🇼|加坡|sg|singapore|sin|🇸🇬|韩|kr|korea|首尔|seoul|🇰🇷"
   
   # Ai服务专用(日本、台湾、新加坡、美国)
