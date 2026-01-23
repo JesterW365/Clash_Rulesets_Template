@@ -1,5 +1,5 @@
 # Ruleset Type:  domain
-# Generated time: 2026-01-21 03:40:08
+# Generated time: 2026-01-23 03:38:58
 # Rule Count: 53
 payload:
   - '+.302.ai'
