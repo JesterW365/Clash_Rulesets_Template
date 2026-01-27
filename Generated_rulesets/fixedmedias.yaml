@@ -1,5 +1,5 @@
 # Ruleset Type:  classical
-# Generated time: 2026-01-25 03:50:29
+# Generated time: 2026-01-27 03:44:16
 # Rule Count: 671
 payload:
   - DOMAIN-SUFFIX,aboutfacebook.com
