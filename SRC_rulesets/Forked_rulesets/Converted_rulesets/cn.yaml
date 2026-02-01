@@ -1,4 +1,4 @@
-# Generated: 2026-01-31 04:02:01
+# Generated: 2026-02-01 04:27:07
 # Type: domain
 payload:
   - '265.com'
@@ -338,6 +338,7 @@ payload:
   - 'tj-pod1-smp-device.apple.com'
   - 'tools.google.com'
   - 'tools.l.google.com'
+  - 'tp.louisvuitton.com'
   - 'tx.lilyemby.com'
   - 'uberproxy-debug4.corp.google.com'
   - 'uberproxy.corp.google.com'
@@ -64975,6 +64976,7 @@ payload:
   - '+.lvbitte.com'
   - '+.lvbogas.com'
   - '+.lvcai.biz'
+  - '+.lvcampaign.com'
   - '+.lvcchong.com'
   - '+.lvchanghuanbao.com'
   - '+.lvchayun.com'
