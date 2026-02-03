@@ -1,4 +1,4 @@
-# Generated: 2026-02-01 04:27:07
+# Generated: 2026-02-03 04:11:45
 # Type: domain
 payload:
   - '1password.drift.click'
@@ -4717,6 +4717,7 @@ payload:
   - '+.brutaltgp.com'
   - '+.bs-adreview.com'
   - '+.bs-awh.ne.jp'
+  - '+.bsappapi.com'
   - '+.bsersd.xyz'
   - '+.bsi.ir'
   - '+.bsky.app'
@@ -19087,6 +19088,7 @@ payload:
   - '+.pjbyj.top'
   - '+.pjful-app.lol'
   - '+.pjgirls.com'
+  - '+.pjsekai.sega.jp'
   - '+.pk.com'
   - '+.pki-post.ch'
   - '+.pki-posta.ch'
@@ -22732,6 +22734,7 @@ payload:
   - '+.taiav.com'
   - '+.tail-f.com'
   - '+.tailf.com'
+  - '+.tails.net'
   - '+.tailscale.com'
   - '+.tailscale.io'
   - '+.tailwindtraders.com'
