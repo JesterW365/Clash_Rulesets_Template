@@ -1,5 +1,5 @@
 # Ruleset Type:  domain
-# Generated time: 2026-02-05 04:11:12
+# Generated time: 2026-02-07 04:05:04
 # Rule Count: 13
 payload:
   - '+.1drv.com'
