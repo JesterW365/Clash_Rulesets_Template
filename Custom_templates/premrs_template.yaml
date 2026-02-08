@@ -42,6 +42,7 @@ dns:
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
     - 223.5.5.5
+    "rule-set:gamecn": [223.5.5.5, 119.29.29.29]
   proxy-server-nameserver:
     - https://doh.pub/dns-query
     - 223.5.5.5
@@ -271,14 +272,23 @@ rule-providers:
   msbing:
     type: http
     behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/JesterW365/Clash_Rulesets_Template@master/Generated_rulesets/msbing.yaml"
-    path: ./ruleset/msbing.yaml
+    format: mrs
+    url: "https://cdn.jsdelivr.net/gh/HenryChiao/MIHOMO_YAMLS@ruleset/meta/domain/microsoft.mrs"
+    path: ./ruleset/msbing.mrs
     interval: 86400
-  googleyoutube:
+  google:
     type: http
-    behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/JesterW365/Clash_Rulesets_Template@master/Generated_rulesets/googleyt.yaml"
-    path: ./ruleset/googleyt.yaml
+    behavior: domain
+    format: mrs
+    url: "https://cdn.jsdelivr.net/gh/HenryChiao/MIHOMO_YAMLS@ruleset/meta/domain/google.mrs"
+    path: ./ruleset/google.mrs
+    interval: 86400
+  youtube:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://cdn.jsdelivr.net/gh/HenryChiao/MIHOMO_YAMLS@ruleset/meta/domain/youtube.mrs"
+    path: ./ruleset/youtube.mrs
     interval: 86400
   apple:
     type: http
@@ -315,8 +325,9 @@ rule-providers:
   onedrive:
     type: http
     behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/JesterW365/Clash_Rulesets_Template@master/Generated_rulesets/onedrive.yaml"
-    path: ./ruleset/onedrive.yaml
+    format: mrs
+    url: "https://cdn.jsdelivr.net/gh/HenryChiao/MIHOMO_YAMLS@ruleset/meta/domain/onedrive.mrs"
+    path: ./ruleset/onedrive.mrs
     interval: 86400
   directdm:
     type: http
@@ -355,7 +366,8 @@ rules:
   - RULE-SET,gameplatform,🎮游戏线路
   - RULE-SET,onedrive,OneDrive
   - RULE-SET,msbing,MS+Bing
-  - RULE-SET,googleyoutube,Google
+  - RULE-SET,google,Google
+  - RULE-SET,youtube,Google
   - RULE-SET,apple,Apple
   - RULE-SET,aiservice,✨Ai线路
   - RULE-SET,aiservicecn,DIRECT
