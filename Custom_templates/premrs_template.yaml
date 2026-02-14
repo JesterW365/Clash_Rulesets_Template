@@ -21,42 +21,45 @@ dns:
   cache-algorithm: arc
   ipv6: false
   prefer-h3: true
+  use-hosts: true
+  use-system-hosts: true
   respect-rules: true
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
+  fake-ip-filter-mode: blacklist
   fake-ip-filter:
-    - "*.lan"
-    - "*.local"
+    - "+.netloading.net"
+    - "*.jsdelivr.net"
+    - "gh-proxy.*"
+    - "ghproxy.*"
+    - "gh.api.*.*"
+    - "connectivitycheck.platform.hicloud.com" # 华为
+    - "captive.apple.com" # 苹果
     - "dns.alidns.com"
     - "doh.pub"
     - "dns.google"
     - "cloudflare-dns.com"
+    - "dns.adguard.com"
     - "rule-set:fakeipfilter"
     - "rule-set:private"
-    - "rule-set:directdm"
   default-nameserver:
     - 223.5.5.5
     - 119.29.29.29
-  nameserver-policy:
-    "rule-set:directdm":
-    - https://doh.pub/dns-query
-    - https://dns.alidns.com/dns-query
-    - 223.5.5.5
-    "rule-set:gamecn": [223.5.5.5, 119.29.29.29]
+    - 8.8.8.8
   proxy-server-nameserver:
-    - https://doh.pub/dns-query
     - 223.5.5.5
     - 119.29.29.29
+    - 8.8.8.8
+  nameserver-policy:
+    "rule-set:gamecn": [223.5.5.5, 119.29.29.29]
+    "rule-set:cn": ["https://doh.pub/dns-query", "https://dns.alidns.com/dns-query"]
   direct-nameserver-follow-policy: true
   direct-nameserver:
-    - https://doh.pub/dns-query
     - 223.5.5.5
     - 119.29.29.29
   nameserver:
     - https://cloudflare-dns.com/dns-query#h3=true
     - https://8.8.8.8/dns-query
-    - https://doh.pub/dns-query
-    - 223.5.5.5
 sniffer:
   enable: true
   force-dns-mapping: true
@@ -68,14 +71,19 @@ sniffer:
       override-destination: true
     TLS:
       ports: [443, 8443]
+      override-destination: true
     QUIC:
       ports: [443, 8443]
   skip-domain:
     - "Mijia Cloud"
-    - "+.push.apple.com"
+    - "+.apple.com"
+    - "+.microsoft.com"
   skip-src-address:
     - 192.168.1.1/24
     - 192.168.66.1/24
+    - 192.168.100.1/24
+    - 192.168.31.1/24
+    - 192.168.3.1/24
   skip-dst-address:
     - 91.105.192.0/23
     - 91.108.4.0/22
@@ -316,11 +324,26 @@ rule-providers:
     url: "https://gh-proxy.org/https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/games.mrs"
     path: ./ruleset/gameplatform.mrs
     interval: 86400
-  fixedmedias:
+  fixedmedias1:
     type: http
-    behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/JesterW365/Clash_Rulesets_Template@master/Generated_rulesets/fixedmedias.yaml"
-    path: ./ruleset/fixedmedias.yaml
+    behavior: domain
+    format: mrs
+    url: "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-social-media-!cn.mrs"
+    path: ./ruleset/fixedmedias1.mrs
+    interval: 86400
+  fixedmedias2:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-communication.mrs"
+    path: ./ruleset/fixedmedias2.mrs
+    interval: 86400
+  telegramip:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: "https://gh-proxy.org/https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/telegramip.mrs"
+    path: ./ruleset/telegramip.yaml
     interval: 86400
   onedrive:
     type: http
@@ -371,7 +394,9 @@ rules:
   - RULE-SET,apple,Apple
   - RULE-SET,aiservice,✨Ai线路
   - RULE-SET,aiservicecn,DIRECT
-  - RULE-SET,fixedmedias,外国媒体
+  - RULE-SET,fixedmedias1,外国媒体
+  - RULE-SET,fixedmedias2,外国媒体
+  - RULE-SET,telegramip,外国媒体
   - RULE-SET,proxy,🌏默认代理
   - RULE-SET,directdm,DIRECT
   - RULE-SET,directip,DIRECT

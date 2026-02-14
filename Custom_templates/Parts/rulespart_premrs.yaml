@@ -110,11 +110,28 @@ rule-providers:
     path: ./ruleset/gameplatform.mrs
     interval: 86400
 
-  fixedmedias:
+  fixedmedias1:
     type: http
-    behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/JesterW365/Clash_Rulesets_Template@master/Generated_rulesets/fixedmedias.yaml"
-    path: ./ruleset/fixedmedias.yaml
+    behavior: domain
+    format: mrs
+    url: "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-social-media-!cn.mrs"
+    path: ./ruleset/fixedmedias1.mrs
+    interval: 86400
+
+  fixedmedias2:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-communication.mrs"
+    path: ./ruleset/fixedmedias2.mrs
+    interval: 86400  
+
+  telegramip:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: "https://gh-proxy.org/https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/telegramip.mrs"
+    path: ./ruleset/telegramip.yaml
     interval: 86400
 
   onedrive:
@@ -174,7 +191,9 @@ rules:
   - RULE-SET,apple,Apple
   - RULE-SET,aiservice,✨Ai线路
   - RULE-SET,aiservicecn,DIRECT
-  - RULE-SET,fixedmedias,外国媒体
+  - RULE-SET,fixedmedias1,外国媒体
+  - RULE-SET,fixedmedias2,外国媒体
+  - RULE-SET,telegramip,外国媒体
 
   # 兜底分流
   - RULE-SET,proxy,🌏默认代理

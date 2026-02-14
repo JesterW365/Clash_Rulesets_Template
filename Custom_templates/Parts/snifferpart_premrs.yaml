@@ -9,14 +9,19 @@ sniffer:
       override-destination: true
     TLS:
       ports: [443, 8443]
+      override-destination: true
     QUIC:
       ports: [443, 8443]
   skip-domain:
     - "Mijia Cloud"
-    - "+.push.apple.com"
+    - "+.apple.com"
+    - "+.microsoft.com"
   skip-src-address:
     - 192.168.1.1/24
     - 192.168.66.1/24
+    - 192.168.100.1/24
+    - 192.168.31.1/24
+    - 192.168.3.1/24
   skip-dst-address:
     - 91.105.192.0/23
     - 91.108.4.0/22
