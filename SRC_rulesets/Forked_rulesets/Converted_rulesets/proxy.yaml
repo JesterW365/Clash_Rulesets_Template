@@ -1,4 +1,4 @@
-# Generated: 2026-02-21 04:02:53
+# Generated: 2026-02-23 04:21:30
 # Type: domain
 payload:
   - '1password.drift.click'
@@ -1489,6 +1489,7 @@ payload:
   - '+.akiba-online.com'
   - '+.akiba-souken.com'
   - '+.akiba-web.com'
+  - '+.akile.io'
   - '+.akinator.com'
   - '+.akita-bank.co.jp'
   - '+.akow.org'
@@ -2616,6 +2617,7 @@ payload:
   - '+.assembla.com'
   - '+.assemblesystems.com'
   - '+.assesphoto.com'
+  - '+.assets.nxtrace.org'
   - '+.assetsadobe.com'
   - '+.assimp.org'
   - '+.assistirhentai.com'
@@ -15748,6 +15750,7 @@ payload:
   - '+.medium.systems'
   - '+.medow.ru'
   - '+.medrxiv.org'
+  - '+.meee.com.tw'
   - '+.meendo.com'
   - '+.meet.new'
   - '+.meetandfuck.games'
@@ -17504,7 +17507,6 @@ payload:
   - '+.nftstorage.link'
   - '+.ng.mil'
   - '+.nga.mil'
-  - '+.ngenix.net'
   - '+.ngensis.com'
   - '+.ngeo.com'
   - '+.ngfiles.com'
@@ -18394,6 +18396,7 @@ payload:
   - '+.opencas.io'
   - '+.opencollective.com'
   - '+.opencreate.org'
+  - '+.opencritic.com'
   - '+.opendemocracy.net'
   - '+.opendesktop.org'
   - '+.opendn.xyz'
@@ -26155,6 +26158,7 @@ payload:
   - '+.www-paypal.info'
   - '+.www-paypal.us'
   - '+.www-sms-apple.com'
+  - '+.www.clashverge.dev'
   - '+.www.destinationurl.com'
   - '+.www.pxcc.com'
   - '+.www.sb'
