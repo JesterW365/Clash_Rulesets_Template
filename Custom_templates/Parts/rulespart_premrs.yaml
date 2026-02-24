@@ -1,40 +1,48 @@
 rule-providers:
-  # predirect
+  # 优先直连
   fakeipfilter:
     type: http
     behavior: domain
     format: mrs
-    url: "https://gh-proxy.org/https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/fakeip-filter.mrs"
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@mihomo-ruleset/fakeip-filter.mrs"
     path: ./ruleset/fakeipfilter.mrs
     interval: 86400    
   private:
     type: http
     behavior: domain
     format: mrs
-    url: "https://gh-proxy.org/https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/private.mrs"
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@mihomo-ruleset/private.mrs"
     path: ./ruleset/private.mrs
     interval: 86400
   privateip:
     type: http
     behavior: ipcidr
     format: mrs
-    url: "https://gh-proxy.org/https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/privateip.mrs"
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@mihomo-ruleset/privateip.mrs"
     path: ./ruleset/privateip.mrs
     interval: 86400
   gamecn:
     type: http
     behavior: domain
     format: mrs
-    url: "https://gh-proxy.org/https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/games-cn.mrs"
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@mihomo-ruleset/games-cn.mrs"
     path: ./ruleset/gamecn.mrs
     interval: 86400
-  predirect:
+  cusdirect:
     type: http
-    behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/JesterW365/Clash_Rulesets_Template@master/Custom_rulesets/Predirect.yaml"
-    path: ./ruleset/predirect.yaml
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/JesterW365/Custom_Rulesets@main/Generated_Rulesets/mihomo/direct_domain.yaml"
+    path: ./ruleset/cusdirect.yaml
     interval: 86400
-  # adblock
+  trackerlist:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@mihomo-ruleset/trackerslist.mrs"
+    path: ./ruleset/trackerlist.mrs
+    interval: 86400
+
+  # 广告拦截
   adrulestop:
     type: http
     behavior: domain
@@ -49,13 +57,28 @@ rule-providers:
     url: "https://gh-proxy.org/https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/ads.mrs"
     path: ./ruleset/antiad.mrs
     interval: 86400
-  adrulesupply:
+  mobileads:
     type: http
-    behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/JesterW365/Clash_Rulesets_Template@master/Custom_rulesets/Supadrules.yaml"
-    path: ./ruleset/adrulesupply.yaml
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/JesterW365/Custom_Rulesets@main/Generated_Rulesets/mihomo/mobile_ads.yaml"
+    path: ./ruleset/mobileads.yaml
+    interval: 86400
+  rejectip:
+    type: http
+    behavior: ipcidr
+    format: text
+    url: "https://ruleset.skk.moe/Clash/ip/reject.txt"
+    path: ./ruleset/rejectip.txt
     interval: 86400
 
+  # 国内规则
+  chinadns:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@mihomo-ruleset/chinadns.mrs"
+
+# 微软和Bing
   msbing:
     type: http
     behavior: domain
@@ -63,77 +86,15 @@ rule-providers:
     url: "https://cdn.jsdelivr.net/gh/HenryChiao/MIHOMO_YAMLS@ruleset/meta/domain/microsoft.mrs"
     path: ./ruleset/msbing.mrs
     interval: 86400
-
-  google:
+# 微软cdn
+  mscdn:
     type: http
-    behavior: domain
-    format: mrs
-    url: "https://cdn.jsdelivr.net/gh/HenryChiao/MIHOMO_YAMLS@ruleset/meta/domain/google.mrs"
-    path: ./ruleset/google.mrs
+    behavior: classical
+    format: text
+    url: "https://ruleset.skk.moe/Clash/non_ip/microsoft_cdn.txt"
+    path: ./ruleset/mscdn.txt
     interval: 86400
-
-  youtube:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://cdn.jsdelivr.net/gh/HenryChiao/MIHOMO_YAMLS@ruleset/meta/domain/youtube.mrs"
-    path: ./ruleset/youtube.mrs
-    interval: 86400
-  
-  apple:
-    type: http
-    behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/JesterW365/Clash_Rulesets_Template@master/Generated_rulesets/appleicloud.yaml"
-    path: ./ruleset/appleicloud.yaml
-    interval: 86400
-
-  aiservice:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://gh-proxy.org/https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/ai.mrs"
-    path: ./ruleset/aiservice.mrs
-    interval: 86400
-
-  aiservicecn:
-    type: http
-    behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/JesterW365/Clash_Rulesets_Template@master/Generated_rulesets/aiservicecn.yaml"
-    path: ./ruleset/aiservicecn.yaml
-    interval: 86400
-
-  gameplatform:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://gh-proxy.org/https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/games.mrs"
-    path: ./ruleset/gameplatform.mrs
-    interval: 86400
-
-  fixedmedias1:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-social-media-!cn.mrs"
-    path: ./ruleset/fixedmedias1.mrs
-    interval: 86400
-
-  fixedmedias2:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-communication.mrs"
-    path: ./ruleset/fixedmedias2.mrs
-    interval: 86400  
-
-  telegramip:
-    type: http
-    behavior: ipcidr
-    format: mrs
-    url: "https://gh-proxy.org/https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/telegramip.mrs"
-    path: ./ruleset/telegramip.yaml
-    interval: 86400
-
+# OneDrive
   onedrive:
     type: http
     behavior: domain
@@ -142,14 +103,90 @@ rule-providers:
     path: ./ruleset/onedrive.mrs
     interval: 86400
 
+# 谷歌
+  google:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://cdn.jsdelivr.net/gh/HenryChiao/MIHOMO_YAMLS@ruleset/meta/domain/google.mrs"
+    path: ./ruleset/google.mrs
+    interval: 86400
+# FCM
+  fcm:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://cdn.jsdelivr.net/gh/HenryChiao/MIHOMO_YAMLS@ruleset/meta/domain/googlefcm.mrs"
+    path: ./ruleset/fcm.mrs
+    interval: 86400
+# Youtube
+  youtube:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://cdn.jsdelivr.net/gh/HenryChiao/MIHOMO_YAMLS@ruleset/meta/domain/youtube.mrs"
+    path: ./ruleset/youtube.mrs
+    interval: 86400
+
+# 苹果和iCloud
+  apple:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/JesterW365/Clash_Rulesets_Template@master/Generated_rulesets/appleicloud.yaml"
+    path: ./ruleset/appleicloud.yaml
+    interval: 86400
+
+# 外国Ai服务
+  aiservice:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@mihomo-ruleset/ai.mrs"
+    path: ./ruleset/aiservice.mrs
+    interval: 86400
+
+# 外国游戏
+  gamesuncn:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://gh-proxy.org/https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/games.mrs"
+    path: ./ruleset/gamesuncn.mrs
+    interval: 86400
+
+# 外国社交媒体
+  fixedmedias1:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-social-media-!cn.mrs"
+    path: ./ruleset/fixedmedias1.mrs
+    interval: 86400
+  fixedmedias2:
+    type: http
+    behavior: domain
+    format: mrs
+    url: "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/category-communication.mrs"
+    path: ./ruleset/fixedmedias2.mrs
+    interval: 86400  
+
+# TelegramIP
+  telegramip:
+    type: http
+    behavior: ipcidr
+    format: mrs
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@mihomo-ruleset/telegramip.mrs"
+    path: ./ruleset/telegramip.mrs
+    interval: 86400
+
+# 直连域名和IP
   directdm:
     type: http
     behavior: domain
     format: mrs
     url: "https://gh-proxy.org/https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/cn.mrs"
     path: ./ruleset/cndm.mrs
-    interval: 86400
-  
+    interval: 86400 
   directip:
     type: http
     behavior: ipcidr
@@ -157,7 +194,8 @@ rule-providers:
     url: "https://gh-proxy.org/https://github.com/DustinWin/ruleset_geodata/releases/download/mihomo-ruleset/cnip.mrs"
     path: ./ruleset/cnip.mrs
     interval: 86400
-  
+
+# 代理域名  
   proxy:
     type: http
     behavior: domain
@@ -168,29 +206,31 @@ rule-providers:
 
 # 分流规则
 rules:
-  # 系统与强制
+  # 优先直连
   - DOMAIN-SUFFIX,netloading.net,DIRECT
   - DOMAIN-SUFFIX,yunti.online,🎬影视线路
   - DOMAIN-SUFFIX,mjji.de,🎬影视线路
   - RULE-SET,fakeipfilter,DIRECT
   - RULE-SET,private,DIRECT
-  - RULE-SET,gamecn,DIRECT
-  - GEOIP,LAN,DIRECT,no-resolve
   - RULE-SET,privateip,DIRECT,no-resolve
 
-  # 规则集 (Rule-Set)
-  - RULE-SET,predirect,DIRECT
+  # 规则集
+  - RULE-SET,gamecn,DIRECT
+  - RULE-SET,trackerlist,DIRECT
+  - RULE-SET,cusdirect,DIRECT
   - RULE-SET,adrulestop,🛑广告拦截
   - RULE-SET,antiad,🛑广告拦截
-  - RULE-SET,adrulesupply,🛑广告拦截
-  - RULE-SET,gameplatform,🎮游戏线路
+  - RULE-SET,mobileads,🛑广告拦截
+  - RULE-SET,gamesuncn,🎮游戏线路
+  - RULE-SET,mscdn,DIRECT
   - RULE-SET,onedrive,OneDrive
   - RULE-SET,msbing,MS+Bing
+  - RULE-SET,fcm,FCM通知
   - RULE-SET,google,Google
   - RULE-SET,youtube,Google
   - RULE-SET,apple,Apple
   - RULE-SET,aiservice,✨Ai线路
-  - RULE-SET,aiservicecn,DIRECT
+  - GEOSITE,category-ai-cn,DIRECT
   - RULE-SET,fixedmedias1,外国媒体
   - RULE-SET,fixedmedias2,外国媒体
   - RULE-SET,telegramip,外国媒体
@@ -199,9 +239,7 @@ rules:
   - RULE-SET,proxy,🌏默认代理
   - RULE-SET,directdm,DIRECT
   - RULE-SET,directip,DIRECT
-  
-  # 国内优化
-  - GEOIP,CN,DIRECT,no-resolve
+  - RULE-SET,rejectip,🛑广告拦截
   
   # 最终匹配
   - MATCH,🔎未命中

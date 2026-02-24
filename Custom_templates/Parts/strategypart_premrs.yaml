@@ -137,11 +137,16 @@ proxy-groups:
   - name: OneDrive
     type: select
     proxies: [DIRECT, 'MS+Bing', '🌏默认代理']
-  
+    
   # Google服务(主日本)
   - name: Google
     type: select
     proxies: ['🇯🇵日本', '🇭🇰香港', '🇸🇬新加坡', '🇺🇸美国', '🇹🇼台湾', '🇰🇷韩国', '🌐其他']
+
+  # FCM通知
+  - name: FCM通知
+    type: select
+    proxies: ['Google', DIRECT]
   
   # Apple服务(主直连)
   - name: Apple

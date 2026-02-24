@@ -12,7 +12,14 @@ find-process-mode: off
 unified-delay: true
 tcp-concurrent: true
 external-controller: '127.0.0.1:9090'
-geodata-mode: false
 profile:
   store-selected: true
   store-fake-ip: true
+geodata-mode: true
+geo-auto-update: true
+geo-update-interval: 24
+geox-url:
+  geosite: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@mihomo-geodata/geosite-all.dat"
+  geoip: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@mihomo-geodata/geoip.dat"
+  mmdb: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@mihomo-geodata/Country.mmdb"
+  asn: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@mihomo-geodata/Country-ASN.mmdb"
