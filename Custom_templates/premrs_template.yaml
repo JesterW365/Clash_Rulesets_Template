@@ -220,7 +220,7 @@ proxy-groups:
     proxies: ['🇯🇵日本', '🇭🇰香港', '🇸🇬新加坡', '🇺🇸美国', '🇹🇼台湾', '🇰🇷韩国', '🌐其他']
   - name: FCM通知
     type: select
-    proxies: ['Google', DIRECT]
+    proxies: [DIRECT, 'Google']
   - name: Apple
     type: select
     proxies: [DIRECT, '🇯🇵日本', '🇭🇰香港', '🇸🇬新加坡', '🇺🇸美国', '🇹🇼台湾', '🇰🇷韩国', '🌐其他', '🌏默认代理']
@@ -232,7 +232,7 @@ proxy-groups:
     proxies: ['🌏默认代理', DIRECT]
   - name: 🛑广告拦截
     type: select
-    proxies: [REJECT, DIRECT, '🌏默认代理']
+    proxies: [REJECT, DIRECT]
 rule-providers:
   fakeipfilter:
     type: http

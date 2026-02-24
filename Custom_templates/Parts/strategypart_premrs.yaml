@@ -146,7 +146,7 @@ proxy-groups:
   # FCM通知
   - name: FCM通知
     type: select
-    proxies: ['Google', DIRECT]
+    proxies: [DIRECT, 'Google']
   
   # Apple服务(主直连)
   - name: Apple
@@ -164,4 +164,4 @@ proxy-groups:
   
   - name: 🛑广告拦截
     type: select
-    proxies: [REJECT, DIRECT, '🌏默认代理']
+    proxies: [REJECT, DIRECT]
