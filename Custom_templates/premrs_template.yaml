@@ -56,7 +56,7 @@ dns:
     - https://223.5.5.5/dns-query
     - https://doh.pub/dns-query
   nameserver-policy:
-    "rule-set:gamecn": [https://223.5.5.5/dns-query, https://doh.pub/dns-query]
+    "rule-set:gamecn": [223.5.5.5, 119.29.29.29]
     "rule-set:directdm": [https://223.5.5.5/dns-query, https://doh.pub/dns-query]
   direct-nameserver-follow-policy: true
   direct-nameserver:
@@ -201,7 +201,7 @@ proxy-groups:
     filter: "(?i)港|hk|hongkong|hong kong|🇭🇰|日本|jp|japan|东京|ty|🇯🇵|台|tw|taiwan|tp|🇹🇼|韩|kr|korea|首尔|seoul|🇰🇷|游戏|game"
   - name: 🎬影视线路
     type: select
-    include-all-proxies: true
+    proxies: [DIRECT]
     include-all-providers: true
     filter: "港|hk|hongkong|hong kong|🇭🇰|日本|jp|japan|东京|ty|🇯🇵|台|tw|taiwan|tp|🇹🇼|加坡|sg|singapore|sin|🇸🇬|韩|kr|korea|首尔|seoul|🇰🇷"
   - name: ✨Ai线路
@@ -232,7 +232,7 @@ proxy-groups:
     proxies: ['🌏默认代理', DIRECT]
   - name: 🛑广告拦截
     type: select
-    proxies: [REJECT, DIRECT]
+    proxies: [REJECT, DIRECT, '🌏默认代理']
 rule-providers:
   fakeipfilter:
     type: http
@@ -415,9 +415,7 @@ rules:
   - DOMAIN-SUFFIX,netloading.net,DIRECT
   - DOMAIN-SUFFIX,yunti.online,🎬影视线路
   - DOMAIN-SUFFIX,mjji.de,🎬影视线路
-  - RULE-SET,fakeipfilter,DIRECT
   - RULE-SET,private,DIRECT
-  - RULE-SET,privateip,DIRECT,no-resolve
   - RULE-SET,gamecn,DIRECT
   - RULE-SET,trackerlist,DIRECT
   - RULE-SET,cusdirect,DIRECT
@@ -436,9 +434,10 @@ rules:
   - GEOSITE,category-ai-cn,DIRECT
   - RULE-SET,fixedmedias1,外国媒体
   - RULE-SET,fixedmedias2,外国媒体
-  - RULE-SET,telegramip,外国媒体
+  - RULE-SET,telegramip,外国媒体,no-resolve
   - RULE-SET,proxy,🌏默认代理
   - RULE-SET,directdm,DIRECT
   - RULE-SET,directip,DIRECT
+  - RULE-SET,privateip,DIRECT,no-resolve
   - RULE-SET,rejectip,🛑广告拦截
   - MATCH,🔎未命中

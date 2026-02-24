@@ -116,7 +116,7 @@ proxy-groups:
   # 特殊影视专用
   - name: 🎬影视线路
     type: select
-    include-all-proxies: true
+    proxies: [DIRECT]
     include-all-providers: true
     filter: "港|hk|hongkong|hong kong|🇭🇰|日本|jp|japan|东京|ty|🇯🇵|台|tw|taiwan|tp|🇹🇼|加坡|sg|singapore|sin|🇸🇬|韩|kr|korea|首尔|seoul|🇰🇷"
   
@@ -164,4 +164,4 @@ proxy-groups:
   
   - name: 🛑广告拦截
     type: select
-    proxies: [REJECT, DIRECT]
+    proxies: [REJECT, DIRECT, '🌏默认代理']
