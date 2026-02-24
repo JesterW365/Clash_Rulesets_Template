@@ -297,7 +297,7 @@ rule-providers:
     interval: 86400
   rejectip:
     type: http
-    behavior: ipcidr
+    behavior: classical
     format: text
     url: "https://ruleset.skk.moe/Clash/ip/reject.txt"
     path: ./ruleset/rejectip.txt
