@@ -71,13 +71,6 @@ rule-providers:
     path: ./ruleset/rejectip.txt
     interval: 86400
 
-  # 国内规则
-  chinadns:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@mihomo-ruleset/chinadns.mrs"
-
 # 微软和Bing
   msbing:
     type: http

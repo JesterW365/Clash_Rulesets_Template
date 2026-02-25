@@ -302,11 +302,6 @@ rule-providers:
     url: "https://ruleset.skk.moe/Clash/ip/reject.txt"
     path: ./ruleset/rejectip.txt
     interval: 86400
-  chinadns:
-    type: http
-    behavior: domain
-    format: mrs
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@mihomo-ruleset/chinadns.mrs"
   msbing:
     type: http
     behavior: domain
