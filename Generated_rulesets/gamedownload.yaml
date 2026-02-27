@@ -1,5 +1,5 @@
 # Ruleset Type:  domain
-# Generated time: 2026-02-25 04:16:59
+# Generated time: 2026-02-27 04:09:54
 # Rule Count: 39
 payload:
   - '+.cdn.ubi.com'
