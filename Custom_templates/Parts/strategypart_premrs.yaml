@@ -103,14 +103,14 @@ proxy-groups:
   - name: ⚓稳定IP
     type: select
     proxies: ['🇭🇰香港', '🇯🇵日本', '🇹🇼台湾', '🇸🇬新加坡', '🌐其他']
-    include-all-proxies: true
+    include-all-providers: true
     filter: "(?i)港|hk|hongkong|hong kong|🇭🇰|日本|jp|japan|东京|ty|🇯🇵|台|tw|taiwan|tp|🇹🇼|加坡|sg|singapore|sin|🇸🇬"
 
   # 网络游戏专用(亚洲)
   - name: 🎮游戏线路
     type: select
     proxies: ['🇹🇼台湾', '🇭🇰香港', '🇯🇵日本', '🇰🇷韩国', '🌐其他', DIRECT]
-    include-all-proxies: true
+    include-all-providers: true
     filter: "(?i)港|hk|hongkong|hong kong|🇭🇰|日本|jp|japan|东京|ty|🇯🇵|台|tw|taiwan|tp|🇹🇼|韩|kr|korea|首尔|seoul|🇰🇷|游戏|game"
   
   # 特殊影视专用
@@ -132,7 +132,7 @@ proxy-groups:
   # 微软服务(主稳定)
   - name: MS+Bing
     type: select
-    proxies: ['⚓稳定IP', '🇭🇰香港', '🇯🇵日本', '🇹🇼台湾', '🇸🇬新加坡', '🇺🇸美国', '🌏默认代理', '🌐其他']  
+    proxies: ['🇭🇰香港', '🇯🇵日本', '🇹🇼台湾', '🇸🇬新加坡', '🇺🇸美国', '🌏默认代理', '🌐其他']  
   # Onedrive服务，跟随或直连
   - name: OneDrive
     type: select
@@ -141,7 +141,7 @@ proxy-groups:
   # Google服务(主日本)
   - name: Google
     type: select
-    proxies: ['🇯🇵日本', '🇭🇰香港', '🇸🇬新加坡', '🇺🇸美国', '🇹🇼台湾', '🇰🇷韩国', '🌐其他']
+    proxies: ['🇯🇵日本', '🇭🇰香港', '🇸🇬新加坡', '🇺🇸美国', '🇹🇼台湾', '🇰🇷韩国', '🌏默认代理', '🌐其他']
 
   # FCM通知
   - name: FCM通知

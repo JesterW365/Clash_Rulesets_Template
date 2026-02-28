@@ -1,0 +1,35 @@
+dmdnsCN: &dmdnsCN [https://223.5.5.5/dns-query, https://doh.pub/dns-query]
+ipdnsCN: &ipdnsCN [223.5.5.5, 119.29.29.29]
+# dmdns!CN: &dmdns!CN [https://8.8.8.8/dns-query#RULES&ecs=223.5.5.0/24]
+dmdns!CN: &dmdns!CN [https://8.8.8.8/dns-query, https://cloudflare-dns.com/dns-query#h3=true]
+# ipdns!CN: &ipdns!CN [1.1.1.1, 8.8.8.8]
+
+dns:
+  enable: true
+  cache-algorithm: arc
+  ipv6: false
+  prefer-h3: true
+  use-hosts: true
+  use-system-hosts: true
+  respect-rules: true
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter-mode: blacklist
+  fake-ip-filter:
+    # 补充连通性测试
+    - "connectivitycheck.platform.hicloud.com" # 华为
+    - "captive.apple.com" # 苹果
+    # ruleset
+    - "rule-set:fakeipfilter"
+    - "rule-set:private"
+  default-nameserver: *ipdnsCN
+  proxy-server-nameserver: *dmdnsCN
+  nameserver-policy:
+    "rule-set:gamecn": *ipdnsCN
+    "rule-set:directdm": *dmdnsCN
+  direct-nameserver-follow-policy: true
+  direct-nameserver: *dmdnsCN
+  nameserver: *dmdns!CN
+# host部分
+hosts:
+  mtalk.google.com: [142.250.107.188, 108.177.125.188]

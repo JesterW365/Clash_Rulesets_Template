@@ -89,11 +89,11 @@ if __name__ == "__main__":
     current_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     project_root = os.path.dirname(current_dir)
 
-    name = "premrs_template"
+    name = "short_template"
     parts_dir = os.path.join(project_root, 'Custom_templates', 'Parts')
     head_name = "premrs"
-    dns_name = "premrs"
+    dns_name = "short"
     sniffer_name = "premrs"
     strategy_name = "premrs"
-    rules_name = "premrs"
+    rules_name = "short"
     merge_template(name, parts_dir, head_name, dns_name, sniffer_name, strategy_name, rules_name)
