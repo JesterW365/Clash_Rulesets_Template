@@ -94,6 +94,6 @@ if __name__ == "__main__":
     head_name = "premrs"
     dns_name = "short"
     sniffer_name = "premrs"
-    strategy_name = "premrs"
+    strategy_name = "short"
     rules_name = "short"
     merge_template(name, parts_dir, head_name, dns_name, sniffer_name, strategy_name, rules_name)
