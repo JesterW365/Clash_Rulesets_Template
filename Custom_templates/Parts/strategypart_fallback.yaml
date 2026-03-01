@@ -13,15 +13,25 @@ groupprop: &groupprop
   lazy: true
   interval: 300
   url: "https://www.gstatic.com/generate_204"
-  timeout: 3000
-  max-failed-times: 5
+  timeout: 2000
+  max-failed-times: 3
   include-all-providers: true
+fallbackprop: &fallbackprop
+  type: fallback
+  lazy: true
+  interval: 300
+  url: "https://www.gstatic.com/generate_204"
+  timeout: 2000
+  max-failed-times: 3
+  include-all-providers: true
+  hidden: true
 
 proxy-groups:
   # 默认流量
   - name: 🌏默认代理
     type: select
     proxies:
+      - 🪢自动转移
       - 🇭🇰香港
       - 🇯🇵日本
       - 🇹🇼台湾
@@ -30,6 +40,16 @@ proxy-groups:
       - 🇺🇸美国
       - 🌐其他
       - DIRECT
+
+  # 按地区进行故障转移的地区fallback分组，默认隐藏，仅为保障连接用
+  - {name: "🇭🇰香港 ", <<: *fallbackprop, filter: *filterHK}
+  - {name: "🇯🇵日本 ", <<: *fallbackprop, filter: *filterJP}
+  - {name: "🇹🇼台湾 ", <<: *fallbackprop, filter: *filterTW}
+  - {name: "🇸🇬新加坡 ", <<: *fallbackprop, filter: *filterSG}
+  - {name: "🇰🇷韩国 ", <<: *fallbackprop, filter: *filterKR}
+  - {name: "🇺🇸美国 ", <<: *fallbackprop, filter: *filterUS}
+  # 按地区进行故障转移的地区分组，默认hk
+  - {name: "🪢自动转移", type: select, proxies: ["🇭🇰香港f", "🇯🇵日本f", "🇹🇼台湾f", "🇸🇬新加坡f", "🇰🇷韩国f", "🇺🇸美国f"]}
 
   # 地区自动分组  
   - {name: "🇭🇰香港", <<: *groupprop, filter: *filterHK}
