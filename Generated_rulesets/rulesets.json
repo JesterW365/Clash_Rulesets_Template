@@ -1,11 +1,11 @@
 {
   "predirect": {
     "group_type": "classical",
-    "rule_count": 176
+    "rule_count": 174
   },
   "adrules": {
     "group_type": "domain",
-    "rule_count": 193102
+    "rule_count": 189513
   },
   "msbing": {
     "group_type": "domain",
@@ -29,7 +29,7 @@
   },
   "appleicloud": {
     "group_type": "domain",
-    "rule_count": 218
+    "rule_count": 219
   },
   "fixedmedias": {
     "group_type": "classical",

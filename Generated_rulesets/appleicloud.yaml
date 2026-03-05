@@ -1,6 +1,6 @@
 # Ruleset Type:  domain
-# Generated time: 2026-03-03 04:11:34
-# Rule Count: 218
+# Generated time: 2026-03-05 04:08:41
+# Rule Count: 219
 payload:
   - '+.a1.mzstatic.com'
   - '+.a2.mzstatic.com'
@@ -88,6 +88,7 @@ payload:
   - '+.icloud-sandbox.com'
   - '+.icloud.cdn-apple.com'
   - '+.icloud.ch'
+  - '+.icloud.cn'
   - '+.icloud.com'
   - '+.icloud.com.cn'
   - '+.icloud.de'
