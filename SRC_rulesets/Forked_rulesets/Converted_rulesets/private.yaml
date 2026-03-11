@@ -1,4 +1,4 @@
-# Generated: 2026-03-09 04:13:15
+# Generated: 2026-03-11 04:06:14
 # Type: domain
 payload:
   - '+.1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa'
@@ -135,5 +135,4 @@ payload:
   - 'setmeup.arubanetworks.com'
   - 'www.asusrouter.com'
   - 'www.miwifi.com'
-  - 'yacd.haishan.me'
   - 'yacd.metacubex.one'
