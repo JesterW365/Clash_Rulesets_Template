@@ -1,4 +1,4 @@
-# Generated: 2026-03-17 04:14:19
+# Generated: 2026-03-19 04:20:48
 # Type: domain
 payload:
   - '1password.drift.click'
@@ -23639,6 +23639,11 @@ payload:
   - '+.tiktokv.us'
   - '+.tiktokw.eu'
   - '+.tiktokw.us'
+  - '+.tilda.cc'
+  - '+.tilda.ru'
+  - '+.tilda.ws'
+  - '+.tildaapi.com'
+  - '+.tildacdn.com'
   - '+.tiltbrush.com'
   - '+.timdir.com'
   - '+.time.com'
