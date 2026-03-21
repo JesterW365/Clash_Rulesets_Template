@@ -1,5 +1,5 @@
 # Ruleset Type:  classical
-# Generated time: 2026-03-19 04:20:40
+# Generated time: 2026-03-21 04:01:59
 # Rule Count: 876
 payload:
   - DOMAIN-SUFFIX,0emm.com
