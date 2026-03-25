@@ -1,4 +1,4 @@
-# Generated: 2026-03-23 04:25:51
+# Generated: 2026-03-25 04:17:10
 # Type: domain
 payload:
   - '1password.drift.click'
@@ -18452,6 +18452,7 @@ payload:
   - '+.openlibrary.org'
   - '+.openmaps.org'
   - '+.openreality.com'
+  - '+.openrec.tv'
   - '+.openresty.org'
   - '+.openreview.net'
   - '+.openrouter.ai'
@@ -18636,8 +18637,15 @@ payload:
   - '+.ozeex.com'
   - '+.ozodi.org'
   - '+.ozodlik.org'
+  - '+.ozon.by'
+  - '+.ozon.com'
+  - '+.ozon.com.by'
+  - '+.ozon.com.kz'
+  - '+.ozon.kz'
   - '+.ozon.ru'
+  - '+.ozon.tm'
   - '+.ozone.ru'
+  - '+.ozonru.me'
   - '+.ozonusercontent.com'
   - '+.ozvoice.org'
   - '+.ozxw.com'
@@ -26398,6 +26406,7 @@ payload:
   - '+.xiaolan.me'
   - '+.xiaoma.org'
   - '+.xiaomi.eu'
+  - '+.xiaomiflash.com'
   - '+.xiaoou.io'
   - '+.xiaoou.tv'
   - '+.xiaoshuobb.life'

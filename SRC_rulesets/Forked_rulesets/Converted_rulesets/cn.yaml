@@ -1,4 +1,4 @@
-# Generated: 2026-03-23 04:25:50
+# Generated: 2026-03-25 04:17:10
 # Type: domain
 payload:
   - 'a1.mzstatic.com'
@@ -104598,7 +104598,6 @@ payload:
   - '+.xiaomidns.com'
   - '+.xiaomidns.net'
   - '+.xiaomiev.com'
-  - '+.xiaomiflash.com'
   - '+.xiaomiinc.net'
   - '+.xiaomimimo.com'
   - '+.xiaomimobile.com'
