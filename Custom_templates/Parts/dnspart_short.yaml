@@ -1,5 +1,5 @@
 dmdnsCN: &dmdnsCN [https://223.5.5.5/dns-query, https://doh.pub/dns-query]
-ipdnsCN: &ipdnsCN [223.5.5.5, 119.29.29.29]
+ipdnsCN: &ipdnsCN [223.5.5.5, 119.29.29.29, 1.1.1.1]
 # dmdnsunCN: &dmdnsunCN [https://8.8.8.8/dns-query#RULES&ecs=223.5.5.0/24]
 dmdnsunCN: &dmdnsunCN [https://8.8.8.8/dns-query, https://cloudflare-dns.com/dns-query#h3=true]
 # ipdnsunCN: &ipdnsunCN [1.1.1.1, 8.8.8.8]
@@ -22,6 +22,10 @@ dns:
     # ruleset
     - "rule-set:fakeipfilter"
     - "rule-set:private"
+    - "rule-seet:trackerlist"
+    - "rule-seet:cusdirect"
+    - "rule-set:aiservicecn"
+    - "rule-set:directdm"
   default-nameserver: *ipdnsCN
   proxy-server-nameserver: *dmdnsCN
   nameserver-policy:
@@ -32,4 +36,15 @@ dns:
   nameserver: *dmdnsunCN
 # host部分
 hosts:
-  mtalk.google.com: [142.250.107.188, 108.177.125.188]
+  mtalk.google.com: [108.177.125.188]
+  mtalk4.google.com: [142.251.10.188]
+  mtalk-staging.google.com: [142.251.16.188]
+  mtalk-dev.google.com: [142.251.111.188]
+  alt1-mtalk.google.com: [142.250.107.188]
+  alt2-mtalk.google.com: [172.217.215.188]
+  alt3-mtalk.google.com: [172.253.115.188]
+  alt4-mtalk.google.com: [142.250.9.188]
+  alt5-mtalk.google.com: [192.178.155.188]
+  alt6-mtalk.google.com: [142.251.170.188]
+  alt7-mtalk.google.com: [108.177.125.188]
+  alt8-mtalk.google.com: [142.251.10.188]

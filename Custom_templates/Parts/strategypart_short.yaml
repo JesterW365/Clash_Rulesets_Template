@@ -1,6 +1,6 @@
 filterHK: &filterHK "^(?=.*(?i)(港|hk|hong|HKG|🇭🇰)).*$"
-filterJP: &filterJP "^(?=.*(?i)(日本|jp|japan|东京|tokyo|ty|osaka|NRT|HND|KIX|CTS|FUK|🇯🇵)).*$"
-filterTW: &filterTW "^(?=.*(?i)(台|tw|taiwan|tp|🇹🇼)).*$"
+filterJP: &filterJP "^(?=.*(?i)(日本|jp|japan|东京|tokyo|osaka|NRT|HND|KIX|CTS|FUK|🇯🇵)).*$"
+filterTW: &filterTW "^(?=.*(?i)(台|tw|taiwan|🇹🇼)).*$"
 filterSG: &filterSG "^(?=.*(?i)(加坡|狮|sg|singapore|SIN|🇸🇬)).*$"
 filterKR: &filterKR "^(?=.*(?i)(韩|kr|korea|首尔|seoul|ICN|🇰🇷)).*$"
 filterUS: &filterUS "^(?=.*(?i)(美|us|unitedstates|united state|americ|洛杉|los |lax|纽约|ny|🇺🇸)).*$"

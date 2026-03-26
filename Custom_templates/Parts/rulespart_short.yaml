@@ -37,7 +37,6 @@ rule-providers:
     path: ./ruleset/gamecn.mrs
   cusdirect:
     <<: *yaml
-    behavior: domain
     url: "https://cdn.jsdelivr.net/gh/JesterW365/Custom_Rulesets@main/Generated_Rulesets/mihomo/direct_domain.yaml"
     path: ./ruleset/cusdirect.yaml
   trackerlist:
@@ -171,7 +170,7 @@ rules:
   - RULE-SET,antiad,🛑广告拦截
   - RULE-SET,mobileads,🛑广告拦截
   - RULE-SET,gamesuncn,🎮游戏线路
-  - RULE-SET,mscdn,DIRECT
+  - RULE-SET,mscdn,OneDrive
   - RULE-SET,onedrive,OneDrive
   - RULE-SET,msbing,MS+Bing
   - RULE-SET,fcm,FCM通知
@@ -187,9 +186,9 @@ rules:
   # 兜底分流
   - RULE-SET,proxy,🌏默认代理
   - RULE-SET,directdm,DIRECT
+  - RULE-SET,rejectip,🛑广告拦截,no-resolve
   - RULE-SET,directip,DIRECT
   - RULE-SET,privateip,DIRECT,no-resolve
-  - RULE-SET,rejectip,🛑广告拦截
   
   # 最终匹配
   - MATCH,🔎未命中
