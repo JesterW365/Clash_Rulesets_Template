@@ -189,7 +189,7 @@ rule-providers:
     path: ./ruleset/mobileads.yaml
   rejectip:
     <<: *txt
-    behavior: ipcidr
+    behavior: classical
     url: "https://ruleset.skk.moe/Clash/ip/reject.txt"
     path: ./ruleset/rejectip.txt
   msbing:
