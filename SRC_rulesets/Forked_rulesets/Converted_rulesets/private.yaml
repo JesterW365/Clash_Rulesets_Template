@@ -1,4 +1,4 @@
-# Generated: 2026-04-05 04:34:47
+# Generated: 2026-04-07 04:30:36
 # Type: domain
 payload:
   - '+.1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa'
@@ -118,7 +118,6 @@ payload:
   - '+.routerlogin.com'
   - '+.tendawifi.com'
   - '+.test'
-  - '+.test.steampowered.com'
   - '+.tplinkwifi.net'
   - '+.tplogin.cn'
   - '+.ts.net'
