@@ -1,4 +1,4 @@
-# Generated: 2026-04-07 04:30:37
+# Generated: 2026-04-09 04:31:13
 # Type: domain
 payload:
   - '1password.drift.click'
@@ -5821,6 +5821,7 @@ payload:
   - '+.crackle.com'
   - '+.craigslist.org'
   - '+.crankplayer.com'
+  - '+.crashlytics.com'
   - '+.crates.io'
   - '+.crazy-amateurs.com'
   - '+.crazyav.xyz'
@@ -14225,7 +14226,6 @@ payload:
   - '+.meetandfuckgames.com'
   - '+.meetfasttrack.com'
   - '+.meetsmartbook.com'
-  - '+.meetup.com'
   - '+.meetyourdevices.com'
   - '+.mega.co.nz'
   - '+.mega.io'
@@ -18137,7 +18137,6 @@ payload:
   - '+.python.com.tw'
   - '+.python.org'
   - '+.pythonhosted.org'
-  - '+.pytorch.org'
   - '+.pzforever.skin'
   - '+.pzforever01.homes'
   - '+.pzhanfor.today'
