@@ -29,8 +29,7 @@ dns:
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter-mode: blacklist
   fake-ip-filter:
-    - "connectivitycheck.platform.hicloud.com"
-    - "captive.apple.com"
+    - "rule-set:connectable"
     - "rule-set:fakeipfilter"
     - "rule-set:private"
     - "rule-seet:trackerlist"
@@ -154,6 +153,10 @@ rule-providers:
     <<: *mrsdm
     url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@mihomo-ruleset/fakeip-filter.mrs"
     path: ./ruleset/fakeipfilter.mrs
+  connectable:
+    <<: *mrsdm
+    url: "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/connectivity-check.mrs"
+    path: ./ruleset/connectable.mrs
   private:
     <<: *mrsdm
     url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@mihomo-ruleset/private.mrs"
@@ -263,6 +266,7 @@ rules:
   - DOMAIN-SUFFIX,yunti.online,🎬影视线路
   - DOMAIN-SUFFIX,mjji.de,🎬影视线路
   - RULE-SET,private,DIRECT
+  - RULE-SET,connectable,DIRECT
   - RULE-SET,gamecn,DIRECT
   - RULE-SET,trackerlist,DIRECT
   - RULE-SET,cusdirect,DIRECT

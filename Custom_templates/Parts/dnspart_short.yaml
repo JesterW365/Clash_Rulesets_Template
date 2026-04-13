@@ -17,8 +17,7 @@ dns:
   fake-ip-filter-mode: blacklist
   fake-ip-filter:
     # 补充连通性测试
-    - "connectivitycheck.platform.hicloud.com"
-    - "captive.apple.com"
+    - "rule-set:connectable"
     # ruleset
     - "rule-set:fakeipfilter"
     - "rule-set:private"

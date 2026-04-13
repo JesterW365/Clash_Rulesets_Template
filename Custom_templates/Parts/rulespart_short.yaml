@@ -23,6 +23,10 @@ rule-providers:
     <<: *mrsdm
     url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@mihomo-ruleset/fakeip-filter.mrs"
     path: ./ruleset/fakeipfilter.mrs 
+  connectable:
+    <<: *mrsdm
+    url: "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@meta/geo/geosite/connectivity-check.mrs"
+    path: ./ruleset/connectable.mrs
   private:
     <<: *mrsdm
     url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@mihomo-ruleset/private.mrs"
@@ -161,6 +165,7 @@ rules:
   - DOMAIN-SUFFIX,yunti.online,🎬影视线路
   - DOMAIN-SUFFIX,mjji.de,🎬影视线路
   - RULE-SET,private,DIRECT 
+  - RULE-SET,connectable,DIRECT
 
   # 规则集
   - RULE-SET,gamecn,DIRECT
