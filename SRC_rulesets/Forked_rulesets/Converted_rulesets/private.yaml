@@ -1,4 +1,4 @@
-# Generated: 2026-04-11 04:18:22
+# Generated: 2026-04-13 04:55:24
 # Type: domain
 payload:
   - '+.1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa'
@@ -102,6 +102,7 @@ payload:
   - '+.home.arpa'
   - '+.internal'
   - '+.invalid'
+  - '+.kis.v2.scr.kaspersky-labs.com'
   - '+.lan'
   - '+.leike.cc'
   - '+.local'
@@ -126,6 +127,7 @@ payload:
   - 'asusrouter.com'
   - 'board.zash.run.place'
   - 'instant.arubanetworks.com'
+  - 'local.adguard.org'
   - 'metacubex.github.io'
   - 'metacubexd.pages.dev'
   - 'miwifi.com'
