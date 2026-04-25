@@ -1,4 +1,4 @@
-# Generated: 2026-04-23 04:47:47
+# Generated: 2026-04-25 04:33:32
 # Type: domain
 payload:
   - '1password.drift.click'
@@ -1099,6 +1099,7 @@ payload:
   - '+.agefans.com'
   - '+.agemys.org'
   - '+.agendaweek.com'
+  - '+.agentclientprotocol.com'
   - '+.agilebits.com'
   - '+.agnesb.fr'
   - '+.agoogleaday.com'
@@ -17616,6 +17617,7 @@ payload:
   - '+.placesdocs.com'
   - '+.planetminecraft.com'
   - '+.planetsuzy.org'
+  - '+.plannotator.ai'
   - '+.plansondemand.com'
   - '+.plantsvszombies2.com'
   - '+.plasticlabs.com'
@@ -21071,6 +21073,7 @@ payload:
   - '+.tech-mail.ru'
   - '+.tech26.de'
   - '+.techatbloomberg.com'
+  - '+.techbang.com'
   - '+.techcrunch.com'
   - '+.techhub.ms'
   - '+.techliquidators.com'
@@ -22052,6 +22055,7 @@ payload:
   - '+.twistys.com'
   - '+.twitch.tv'
   - '+.twitchcdn.net'
+  - '+.twitchcon.com'
   - '+.twitchsvc.net'
   - '+.twitcomike.jp'
   - '+.twitiq.com'
