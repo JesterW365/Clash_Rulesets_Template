@@ -5,7 +5,7 @@
   },
   "adrules": {
     "group_type": "domain",
-    "rule_count": 199957
+    "rule_count": 200406
   },
   "msbing": {
     "group_type": "domain",
@@ -45,6 +45,6 @@
   },
   "gameplatform": {
     "group_type": "classical",
-    "rule_count": 361
+    "rule_count": 360
   }
 }
