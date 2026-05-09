@@ -1,5 +1,5 @@
 # Ruleset Type:  classical
-# Generated time: 2026-05-07 05:28:20
+# Generated time: 2026-05-09 05:18:22
 # Rule Count: 175
 payload:
   - DOMAIN-SUFFIX,1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
