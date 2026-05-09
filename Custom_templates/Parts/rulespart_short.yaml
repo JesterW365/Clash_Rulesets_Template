@@ -177,7 +177,7 @@ rules:
 
   # 放行中国QUIC，拦截其他地区QUIC流量
   - AND,((NETWORK,UDP),(DST-PORT,443),(RULE-SET,directip)),DIRECT 
-  - AND,((NETWORK,UDP),(DST-PORT,443)),REJECT
+  - AND,((NETWORK,UDP),(DST-PORT,443)),国外QUIC
 
   # 规则集
   - RULE-SET,gamesuncn,🎮游戏线路

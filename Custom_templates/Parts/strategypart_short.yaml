@@ -16,6 +16,7 @@ groupprop: &groupprop
   timeout: 3000
   max-failed-times: 5
   include-all-providers: true
+  include-all-proxies: true
 
 proxy-groups:
   # 默认流量
@@ -43,13 +44,13 @@ proxy-groups:
 
   # 3. 特殊用途筛选
   # 选择一个较为稳定的节点用以后续
-  - {name: "⚓稳定IP", type: select, proxies: ["🇭🇰香港", "🇯🇵日本", "🇹🇼台湾", "🇸🇬新加坡", "🇰🇷韩国", "🇺🇸美国"], include-all-providers: true, filter: *filterSPC}
+  - {name: "⚓稳定IP", type: select, proxies: ["🇭🇰香港", "🇯🇵日本", "🇹🇼台湾", "🇸🇬新加坡", "🇰🇷韩国", "🇺🇸美国"], include-all-providers: true, include-all-proxies: true, filter: *filterSPC}
 
   # 网络游戏专用(亚洲)
-  - {name: "🎮游戏线路", type: select, proxies: ["🇹🇼台湾", "🇭🇰香港", "🇯🇵日本", "🇰🇷韩国", DIRECT], include-all-providers: true, filter: *filterASIA}
+  - {name: "🎮游戏线路", type: select, proxies: ["🇹🇼台湾", "🇭🇰香港", "🇯🇵日本", "🇰🇷韩国", DIRECT], include-all-providers: true, include-all-proxies: true, filter: *filterASIA}
   
   # 特殊影视专用
-  - {name: "🎬影视线路", type: select, proxies: [DIRECT], include-all-providers: true, filter: *filterASIA}
+  - {name: "🎬影视线路", type: select, proxies: [DIRECT], include-all-providers: true, include-all-proxies: true, filter: *filterASIA}
 
   # Ai服务专用(日本、台湾、新加坡、美国)
   - {name: "✨Ai线路", type: select, proxies: ["🇯🇵日本", "🇹🇼台湾", "🇸🇬新加坡", "🇺🇸美国", "🌐其他"]}
@@ -72,6 +73,9 @@ proxy-groups:
 
   # Telegram|Twitter|Facebook|TikTok etc.
   - {name: "外国媒体", type: select, proxies: ["⚓稳定IP", "🌏默认代理"]}
+
+  # 外国quic处理
+  - {name: "国外QUIC", type: select, proxies: [REJECT, PASS]}
 
   - {name: "🔎未命中", type: select, proxies: ["🌏默认代理", DIRECT]}
 
