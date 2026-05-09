@@ -29,6 +29,7 @@ dns:
   fake-ip-range: 198.18.0.1/16
   fake-ip-filter-mode: blacklist
   fake-ip-filter:
+    - "*"
     - "rule-set:connectable"
     - "rule-set:fakeipfilter"
     - "rule-set:private"
@@ -273,6 +274,8 @@ rules:
   - RULE-SET,adrulestop,🛑广告拦截
   - RULE-SET,antiad,🛑广告拦截
   - RULE-SET,mobileads,🛑广告拦截
+  - AND,((NETWORK,UDP),(DST-PORT,443),(RULE-SET,directip)),DIRECT
+  - AND,((NETWORK,UDP),(DST-PORT,443)),REJECT
   - RULE-SET,gamesuncn,🎮游戏线路
   - RULE-SET,mscdn,OneDrive
   - RULE-SET,onedrive,OneDrive

@@ -167,13 +167,19 @@ rules:
   - RULE-SET,private,DIRECT 
   - RULE-SET,connectable,DIRECT
 
-  # 规则集
+  # 直连与广告
   - RULE-SET,gamecn,DIRECT
   - RULE-SET,trackerlist,DIRECT
   - RULE-SET,cusdirect,DIRECT
   - RULE-SET,adrulestop,🛑广告拦截
   - RULE-SET,antiad,🛑广告拦截
   - RULE-SET,mobileads,🛑广告拦截
+
+  # 放行中国QUIC，拦截其他地区QUIC流量
+  - AND,((NETWORK,UDP),(DST-PORT,443),(RULE-SET,directip)),DIRECT 
+  - AND,((NETWORK,UDP),(DST-PORT,443)),REJECT
+
+  # 规则集
   - RULE-SET,gamesuncn,🎮游戏线路
   - RULE-SET,mscdn,OneDrive
   - RULE-SET,onedrive,OneDrive
