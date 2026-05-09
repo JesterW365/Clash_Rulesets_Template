@@ -1,6 +1,6 @@
 # Ruleset Type:  classical
-# Generated time: 2026-04-13 04:55:18
-# Rule Count: 173
+# Generated time: 2026-05-09 05:18:22
+# Rule Count: 175
 payload:
   - DOMAIN-SUFFIX,1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa
   - DOMAIN-SUFFIX,10.in-addr.arpa
@@ -102,6 +102,7 @@ payload:
   - DOMAIN-SUFFIX,diagrams.net
   - DOMAIN-SUFFIX,hiwifi.com
   - DOMAIN-SUFFIX,home.arpa
+  - DOMAIN-SUFFIX,kis.v2.scr.kaspersky-labs.com
   - DOMAIN-SUFFIX,koofer.net
   - DOMAIN-SUFFIX,leike.cc
   - DOMAIN-SUFFIX,localhost.ptlogin2.qq.com
@@ -139,6 +140,7 @@ payload:
   - DOMAIN,gamer520.com
   - DOMAIN,instant.arubanetworks.com
   - DOMAIN,jisuchuan.com
+  - DOMAIN,local.adguard.org
   - DOMAIN,mindmaps.app
   - DOMAIN,oasisauth.h3c.com
   - DOMAIN,pansou.app

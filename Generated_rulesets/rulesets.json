@@ -1,11 +1,11 @@
 {
   "predirect": {
     "group_type": "classical",
-    "rule_count": 173
+    "rule_count": 175
   },
   "adrules": {
     "group_type": "domain",
-    "rule_count": 200230
+    "rule_count": 198409
   },
   "msbing": {
     "group_type": "domain",
@@ -45,6 +45,6 @@
   },
   "gameplatform": {
     "group_type": "classical",
-    "rule_count": 361
+    "rule_count": 360
   }
 }
