@@ -5,7 +5,7 @@
   },
   "adrules": {
     "group_type": "domain",
-    "rule_count": 198409
+    "rule_count": 198808
   },
   "msbing": {
     "group_type": "domain",
@@ -29,7 +29,7 @@
   },
   "appleicloud": {
     "group_type": "domain",
-    "rule_count": 219
+    "rule_count": 215
   },
   "fixedmedias": {
     "group_type": "classical",
