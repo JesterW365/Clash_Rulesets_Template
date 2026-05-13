@@ -5,7 +5,7 @@
   },
   "adrules": {
     "group_type": "domain",
-    "rule_count": 198808
+    "rule_count": 199247
   },
   "msbing": {
     "group_type": "domain",
@@ -17,7 +17,7 @@
   },
   "googleyt": {
     "group_type": "classical",
-    "rule_count": 876
+    "rule_count": 869
   },
   "aiservice": {
     "group_type": "classical",

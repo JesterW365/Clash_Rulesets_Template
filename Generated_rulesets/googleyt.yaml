@@ -1,6 +1,6 @@
 # Ruleset Type:  classical
-# Generated time: 2026-05-11 05:55:06
-# Rule Count: 876
+# Generated time: 2026-05-13 05:44:26
+# Rule Count: 869
 payload:
   - DOMAIN-SUFFIX,0emm.com
   - DOMAIN-SUFFIX,1e100.net
@@ -199,7 +199,6 @@ payload:
   - DOMAIN-SUFFIX,doubleclick-cn.net
   - DOMAIN-SUFFIX,doubleclick.com
   - DOMAIN-SUFFIX,doubleclick.net
-  - DOMAIN-SUFFIX,download.qatp1.net
   - DOMAIN-SUFFIX,episodic.com
   - DOMAIN-SUFFIX,fastlane.ci
   - DOMAIN-SUFFIX,fastlane.tools
@@ -553,7 +552,6 @@ payload:
   - DOMAIN-SUFFIX,meet.new
   - DOMAIN-SUFFIX,mfg-inspector.com
   - DOMAIN-SUFFIX,mobileview.page
-  - DOMAIN-SUFFIX,monitoring.qpdp1.net
   - DOMAIN-SUFFIX,moodstocks.com
   - DOMAIN-SUFFIX,near.by
   - DOMAIN-SUFFIX,nest.com
@@ -597,12 +595,8 @@ payload:
   - DOMAIN-SUFFIX,projectara.com
   - DOMAIN-SUFFIX,projectbaseline.com
   - DOMAIN-SUFFIX,publishproxy.com
-  - DOMAIN-SUFFIX,qagpublic.qatp1.net
-  - DOMAIN-SUFFIX,qgadmin.qcpp1.net
   - DOMAIN-SUFFIX,qiao-cn.com
   - DOMAIN-SUFFIX,qpx.googleflights.net
-  - DOMAIN-SUFFIX,qualysapi.qatp1.net
-  - DOMAIN-SUFFIX,qualysguard.qpdp1.net
   - DOMAIN-SUFFIX,questvisual.com
   - DOMAIN-SUFFIX,quickoffice.com
   - DOMAIN-SUFFIX,quiksee.com
@@ -619,7 +613,6 @@ payload:
   - DOMAIN-SUFFIX,run.app
   - DOMAIN-SUFFIX,savethedate.foo
   - DOMAIN-SUFFIX,saynow.com
-  - DOMAIN-SUFFIX,scanservice1.qcpp1.net
   - DOMAIN-SUFFIX,schema.org
   - DOMAIN-SUFFIX,schemer.com
   - DOMAIN-SUFFIX,screenwisetrends.com
