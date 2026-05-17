@@ -1,4 +1,4 @@
-# Generated: 2026-05-15 05:51:24
+# Generated: 2026-05-17 05:44:47
 # Type: domain
 payload:
   - '1password.drift.click'
@@ -2303,6 +2303,7 @@ payload:
   - '+.archivx.to'
   - '+.archlinux.de'
   - '+.archlinux.org'
+  - '+.archlinux.page'
   - '+.archlinuxarm.org'
   - '+.archlinuxcn.org'
   - '+.arcraiders.com'
@@ -23540,6 +23541,7 @@ payload:
   - '+.vultr.com'
   - '+.vultryhw.com'
   - '+.vuvuzela.io'
+  - '+.vv1865.com'
   - '+.vzw.com'
   - '+.w-mt.co'
   - '+.w-pool.com'
