@@ -1,5 +1,5 @@
 # Ruleset Type:  domain
-# Generated time: 2026-05-17 05:44:40
+# Generated time: 2026-05-19 06:03:17
 # Rule Count: 215
 payload:
   - '+.a1.mzstatic.com'
