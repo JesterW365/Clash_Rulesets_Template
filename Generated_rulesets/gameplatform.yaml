@@ -1,5 +1,5 @@
 # Ruleset Type:  classical
-# Generated time: 2026-05-23 05:36:15
+# Generated time: 2026-05-25 06:23:14
 # Rule Count: 360
 payload:
   - DOMAIN-SUFFIX,100classicbooks.com
