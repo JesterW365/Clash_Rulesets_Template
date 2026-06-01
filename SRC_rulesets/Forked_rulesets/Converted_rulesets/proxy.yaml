@@ -1,4 +1,4 @@
-# Generated: 2026-05-31 06:13:44
+# Generated: 2026-06-01 06:50:42
 # Type: domain
 payload:
   - '1password.drift.click'
@@ -6843,6 +6843,7 @@ payload:
   - '+.disneytvajobs.com'
   - '+.disneyworld-go.com'
   - '+.disp.cc'
+  - '+.disq.us'
   - '+.disqus.com'
   - '+.disquscdn.com'
   - '+.disqusservice.com'
@@ -24410,11 +24411,15 @@ payload:
   - '+.xhamster18.com'
   - '+.xhamster18.desi'
   - '+.xhamster19.com'
+  - '+.xhamster2.com'
   - '+.xhamster3.com'
   - '+.xhamsterlive.com'
   - '+.xhcdn.com'
+  - '+.xhnews.live'
   - '+.xhot.pro'
+  - '+.xhpingcdn.com'
   - '+.xhpjc6-cdn-settings.appsflyersdk.com'
+  - '+.xhreal5.com'
   - '+.xhub.tv'
   - '+.xiangrikui-app.com'
   - '+.xianir.xyz'
