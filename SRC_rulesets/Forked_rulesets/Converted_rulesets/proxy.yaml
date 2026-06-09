@@ -1,4 +1,4 @@
-# Generated: 2026-06-07 06:19:42
+# Generated: 2026-06-09 06:05:23
 # Type: domain
 payload:
   - '1password.drift.click'
@@ -16615,6 +16615,7 @@ payload:
   - '+.noticias-rt.com'
   - '+.notimundo.press'
   - '+.notion-static.com'
+  - '+.notion-status.com'
   - '+.notion.com'
   - '+.notion.new'
   - '+.notion.site'
